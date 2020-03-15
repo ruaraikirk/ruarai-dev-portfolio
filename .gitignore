@@ -67,9 +67,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# Package Lock file
-package-lock.json
-
-# SonarLint
-.idea

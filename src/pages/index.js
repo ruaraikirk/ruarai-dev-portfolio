@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import animateScrollTo from 'animated-scroll-to';
-import { SectionLink } from 'react-scroll-section'; // TODO review this library and https://www.gatsbyjs.org/starters/EmaSuriano/gatsby-starter-mate/
+// import { SectionLink } from 'react-scroll-section'; TODO review this library and https://www.gatsbyjs.org/starters/EmaSuriano/gatsby-starter-mate/
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -35,7 +35,10 @@ const BlogIndex = ({ data, location }) => {
     >
       <HeroBannerText />
       <span
+        role="button"
         onClick={() => scrollWindow()}
+        onKeyDown={() => scrollWindow()}
+        tabIndex={0}
       >
         <MouseIcon onClick={scrollWindow} />
       </span>
