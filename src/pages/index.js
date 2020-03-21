@@ -1,14 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 import animateScrollTo from 'animated-scroll-to';
-import LazyHero from 'react-lazy-hero';
 import MouseIcon from "../components/MouseIcon"
-import HeroBannerText from "../components/HeroBannerText"
+import HeroOverlay from "../components/HeroOverlay"
+import Hero from "../components/Hero"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -26,14 +25,8 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <div>
-      <LazyHero
-        imageSrc="https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2853&q=80"
-        minHeight="100vh"
-        parallaxOffset={100}
-        color="#D3D3D3"
-        transitionDuration={6000}
-      >
-        <HeroBannerText />
+      <Hero>
+        <HeroOverlay />
         <span
           role="button"
           onClick={() => scrollWindow()}
@@ -42,7 +35,7 @@ const BlogIndex = ({ data, location }) => {
         >
         <MouseIcon onClick={scrollWindow} />
       </span>
-      </LazyHero>
+      </Hero>
       <div id="to" />
       <Layout location={location} title={siteTitle}>
         <SEO title="Portfolio" />

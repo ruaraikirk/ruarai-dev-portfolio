@@ -8,12 +8,12 @@ import styled, { keyframes }  from 'styled-components';
 
 const TypewriterTextLarge = keyframes`
    from{width: 0;}
-   to{width: 420px;}
+   to{width: 400px;}
 `;
 
 const TypewriterTextSmall = keyframes`
   from{width: 0;}
-  to{width: 310px;}
+  to{width: 290px;}
 `;
 
 const TypewriterCursor = keyframes`
@@ -50,7 +50,7 @@ const StyledIcon = styled(Icon)`
   cursor: pointer
 `;
 
-const HeroBannerText = () => {
+const HeroOverlay = () => {
   return (
     <StyledGrid>
       <Grid container spacing={3}>
@@ -58,7 +58,7 @@ const HeroBannerText = () => {
           <Typewriter>Hello World! I'm Ruaraí.</Typewriter>
         </Grid>
       </Grid>
-      <Grid container spacing={3}>
+      <Grid container>
         <Grid item xs={3}>
           <StyledIcon>
             <GitHubIcon fontSize="large" onClick={() => window.open('https://github.com/ruaraikirk')}/>
@@ -84,4 +84,4 @@ const HeroBannerText = () => {
   )
 }
 
-export default HeroBannerText
+export default HeroOverlay
