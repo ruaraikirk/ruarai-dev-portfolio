@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }) => {
         minHeight="100vh"
         parallaxOffset={100}
         color="#D3D3D3"
-        transitionDuration={2500}
+        transitionDuration={6000}
       >
         <HeroBannerText />
         <span
