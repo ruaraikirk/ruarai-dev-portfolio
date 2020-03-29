@@ -1,0 +1,112 @@
+.bubble {
+    position: absolute;
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+    box-shadow:
+            0 15px 35px rgba(0, 0, 0, 0.1),
+            0 3px 10px rgba(0, 0, 0, 0.1);
+    /*background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9332/stripe-logo-bubbles-spritesheet.png);*/
+    background-image: url(https://projectmediaic1634ma.s3-eu-west-1.amazonaws.com/portfolioProjectMedia/spritesheet3.png);
+    background-size: 1076px 1076px;
+}
+
+.logo1 {
+    background-position: 0 0;
+}
+
+.logo10 {
+    background-position: -215px 0;
+}
+
+.logo11 {
+    background-position: -430px 0;
+}
+
+.logo12 {
+    background-position: -645px 0;
+}
+
+.logo13 {
+    background-position: -860px 0;
+}
+
+.logo14 {
+    background-position: 0 -215px;
+}
+
+.logo15 {
+    background-position: -215px -215px;
+}
+
+.logo16 {
+    background-position: -430px -215px;
+}
+
+.logo17 {
+    background-position: -645px -215px;
+}
+
+.logo18 {
+    background-position: -860px -215px;
+}
+
+.logo19 {
+    background-position: 0 -430px;
+}
+
+.logo2 {
+    background-position: -215px -430px;
+}
+
+.logo20 {
+    background-position: -430px -430px;
+}
+
+.logo21 {
+    background-position: -645px -430px;
+}
+
+.logo22 {
+    background-position: -860px -430px;
+}
+
+.logo23 {
+    background-position: 0 -645px;
+}
+
+.logo24 {
+    background-position: -215px -645px;
+}
+
+.logo25 {
+    background-position: -430px -645px;
+}
+
+.logo3 {
+    background-position: -645px -645px;
+}
+
+.logo4 {
+    background-position: -860px -645px;
+}
+
+.logo5 {
+    background-position: 0 -860px;
+}
+
+.logo6 {
+    background-position: -215px -860px;
+}
+
+.logo7 {
+    background-position: -430px -860px;
+}
+
+.logo8 {
+    background-position: -645px -860px;
+}
+
+.logo9 {
+    background-position: -860px -860px;
+}
