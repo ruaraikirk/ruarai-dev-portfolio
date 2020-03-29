@@ -1,0 +1,143 @@
+.bubble-wrap {
+  overflow: hidden;
+  height: 500px;
+  width: 100vw !important;
+}
+
+.bubbles {
+  position: relative;
+  background: salmon;
+}
+
+.bubble {
+  position: absolute;
+  width: 95px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-image: url(https://projectmediaic1634ma.s3-eu-west-1.amazonaws.com/portfolioProjectMedia/spritesheet5.png);
+  /*background-size: 1076px 1076px;*/
+}
+
+.logo1 {
+  background-position: 0 0;
+}
+
+.logo10 {
+  background-position: 0 -95px;
+}
+
+.logo11 {
+  background-position: 0 -190px;
+}
+
+.logo12 {
+  background-position: 0 -290px;
+}
+
+.logo13 {
+  background-position: 0 -385px;
+}
+
+.logo14 {
+  background-position: 0 -480px;
+}
+
+.logo15 {
+  background-position: 0 -570px;
+}
+
+.logo16 {
+  background-position: 0 -665px;
+}
+
+.logo17 {
+  background-position: 0 -760px;
+}
+
+.logo18 {
+  background-position: 0 -855px;
+}
+
+.logo19 {
+  background-position: 0 -950px;
+}
+
+.logo2 {
+  background-position: 0 -1045px;
+}
+
+.logo20 {
+  background-position: 0 -1140px;
+}
+
+.logo21 {
+  background-position: 0 -1235px;
+}
+
+.logo22 {
+  background-position: 0 -1330px;
+}
+
+.logo23 {
+  background-position: 0 -1425px;
+}
+
+.logo24 {
+  background-position: 0 -1520px;
+}
+
+.logo25 {
+  background-position: 0 -1615px;
+}
+
+.logo26 {
+  background-position: 0 -1710px;
+}
+
+.logo3 {
+  background-position: 0 -1805px;
+}
+
+.logo4 {
+  background-position: 0 -1900px;
+}
+
+.logo5 {
+  background-position: 0 -1995px;
+}
+
+.logo6 {
+  background-position: 0 -2090px;
+}
+
+.logo7 {
+  background-position: 0 -2185px;
+}
+
+.logo8 {
+  background-position: 0 -2280px;
+}
+
+.logo9 {
+  background-position: 0 -2375px;
+}
+
+@media screen and (min-width: 1025px){
+  .bubble-wrap {
+    margin-left: -100%;
+    margin-right: -100%;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .bubble-wrap {
+    margin-left: -33.33%;
+    margin-right: -33.33%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .bubble-wrap {
+    margin-left: -10%;
+    margin-right: -5%;
+  }
+}

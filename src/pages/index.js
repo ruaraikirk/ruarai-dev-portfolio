@@ -1,5 +1,6 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import Helmet from "react-helmet"
+import { withPrefix, Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,6 +9,7 @@ import animateScrollTo from 'animated-scroll-to';
 import MouseIcon from "../components/MouseIcon"
 import HeroOverlay from "../components/HeroOverlay"
 import Hero from "../components/Hero"
+import Technologies from "../components/Technologies"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -25,6 +27,9 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <div>
+      <Helmet>
+        <script src={withPrefix('script.js')} type="text/javascript" />
+      </Helmet>
       <Hero>
         <HeroOverlay />
         <span
@@ -40,6 +45,7 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <SEO title="Portfolio" />
         <Bio />
+        <Technologies />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
