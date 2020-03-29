@@ -40,6 +40,8 @@ const bubbleSpecs = [
 
 class Bubbles {
   constructor(specs) {
+    const bubblesEl = document.querySelector('.bubbles');
+
     this.bubbles = [];
 
     specs.forEach((spec, index) => {
@@ -58,7 +60,6 @@ class Bubbles {
 
 class Bubble {
   constructor(index, {x, y, s = 1}) {
-    const bubblesEl = document.querySelector('.bubbles');
     this.index = index;
     this.x = x;
     this.y = y;
