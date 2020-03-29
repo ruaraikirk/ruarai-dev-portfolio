@@ -1,5 +1,5 @@
-const SCROLL_SPEED = 1;
-const CANVAS_WIDTH = 2800;
+// const SCROLL_SPEED = 1;
+// const CANVAS_WIDTH = 2800;
 
 const bubblesEl = document.querySelector('.bubbles');
 const bubbleSpecs = [
@@ -69,6 +69,8 @@ class Bubble {
   }
 
   update() {
+    const SCROLL_SPEED = 1;
+    const CANVAS_WIDTH = 2800;
     this.x = (this.x <  -200) ? CANVAS_WIDTH : this.x - SCROLL_SPEED;
     this.el.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
   }
