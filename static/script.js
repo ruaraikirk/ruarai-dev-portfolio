@@ -1,7 +1,7 @@
 // const SCROLL_SPEED = 1;
 // const CANVAS_WIDTH = 2800;
 
-// const bubblesEl = document.querySelector('.bubbles');
+const bubblesEl = document.querySelector('.bubbles');
 const bubbleSpecs = [
   { s: .6, x: 1134, y: 45  },
   { s: .6, x: 1620, y: 271 },
@@ -40,8 +40,6 @@ const bubbleSpecs = [
 
 class Bubbles {
   constructor(specs) {
-    const bubblesEl = document.querySelector('.bubbles');
-
     this.bubbles = [];
 
     specs.forEach((spec, index) => {
