@@ -2,6 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from 'styled-components';
+import HeroContent from "../components/HeroContent"
+import MouseIcon from "../components/MouseIcon"
+import animateScrollTo from "animated-scroll-to"
 
 const Container = styled.div`
   display: flex;
@@ -42,8 +45,7 @@ const BgImage = styled(Image)`
   }
 `;
 
-const Hero = (props) => {
-  const { children } = props;
+const Hero = () => {
   const data = useStaticQuery(graphql`
     query HeroQuery {
       avatar: file(absolutePath: { regex: "/workstation.jpeg/" }) {
@@ -62,13 +64,34 @@ const Hero = (props) => {
   `)
 
   const { author } = data.site.siteMetadata
+  const scrollWindow = () => {
+    const scrollPoint = document.getElementById('to');
+    if (scrollPoint) {
+      const windowScrollTop = window.scrollY || window.pageYOffset;
+      const dataRect = scrollPoint.getBoundingClientRect();
+      animateScrollTo(dataRect.top + dataRect.height + windowScrollTop, {
+        speed: 1000,
+      });
+    }
+  };
+
   return (
     <Container>
       <BgImage
         fluid={data.avatar.childImageSharp.fluid}
         alt={author}
       />
-      <Overlay>{children}</Overlay>
+      <Overlay>
+        <HeroContent />
+        <span
+          role="button"
+          onClick={() => scrollWindow()}
+          onKeyDown={() => scrollWindow()}
+          tabIndex={0}
+        >
+          <MouseIcon onClick={scrollWindow} />
+        </span>
+      </Overlay>
     </Container>
   )
 }

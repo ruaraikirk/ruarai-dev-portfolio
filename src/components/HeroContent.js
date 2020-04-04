@@ -50,7 +50,7 @@ const StyledIcon = styled(Icon)`
   cursor: pointer
 `;
 
-const HeroOverlay = () => {
+const HeroContent = () => {
   return (
     <StyledGrid>
       <Grid container spacing={3}>
@@ -84,4 +84,4 @@ const HeroOverlay = () => {
   )
 }
 
-export default HeroOverlay
+export default HeroContent
