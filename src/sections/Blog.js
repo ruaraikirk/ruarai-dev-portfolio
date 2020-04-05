@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { Section } from "react-scroll-section"
+import Layout from "../components/Layout"
 
 const Blog = () => {
   const data = useStaticQuery(graphql`
@@ -30,7 +32,8 @@ const Blog = () => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    posts.map(({ node }) => {
+    <Section id="blog">
+      {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <article key={node.fields.slug}>
@@ -55,7 +58,8 @@ const Blog = () => {
             </section>
           </article>
         )
-      })
+      })}
+    </Section>
   )
 }
 

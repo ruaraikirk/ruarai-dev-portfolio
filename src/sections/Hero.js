@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from 'styled-components';
+import { SectionLink } from 'react-scroll-section'
 import HeroContent from "../components/HeroContent"
 import MouseIcon from "../components/MouseIcon"
 import animateScrollTo from "animated-scroll-to"
@@ -83,14 +84,17 @@ const Hero = () => {
       />
       <Overlay>
         <HeroContent />
-        <span
-          role="button"
-          onClick={() => scrollWindow()}
-          onKeyDown={() => scrollWindow()}
-          tabIndex={0}
-        >
-          <MouseIcon onClick={scrollWindow} />
-        </span>
+        {/*<span*/}
+        {/*  role="button"*/}
+        {/*  onClick={() => scrollWindow()}*/}
+        {/*  onKeyDown={() => scrollWindow()}*/}
+        {/*  tabIndex={0}*/}
+        {/*>*/}
+        <SectionLink section="bio">
+          {/*<MouseIcon onClick={scrollWindow} />*/}
+          {({ onClick }) => <MouseIcon onClick={onClick} />}
+        </SectionLink>
+        {/*</span>*/}
       </Overlay>
     </Container>
   )

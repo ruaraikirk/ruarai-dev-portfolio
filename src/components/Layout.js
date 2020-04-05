@@ -1,8 +1,10 @@
 import React  from "react"
 import { Link } from "gatsby"
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
+import { ScrollingProvider, Section } from "react-scroll-section"
 import HiddenBox from "./HiddenBox"
 import Hero from "../sections/Hero"
+import Header from "./Header"
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -58,13 +60,16 @@ const Layout = ({ location, title, children }) => {
   return (
     <main>
       <GlobalStyle />
-      <HiddenBox
-        showIf={location.pathname === rootPath}
-      >
-        <Hero />
-      </HiddenBox>
-      <div id="to" />
-      <div>
+      <ScrollingProvider>
+        <HiddenBox
+          showIf={location.pathname === rootPath}
+        >
+          <Header />
+          <Section id="home">
+            <Hero />
+          </Section>
+        </HiddenBox>
+        {/*<div id="to" />*/}
         <header>{header}</header>
         <main>{children}</main>
         <footer>
@@ -72,7 +77,7 @@ const Layout = ({ location, title, children }) => {
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </div>
+      </ScrollingProvider>
     </main>
   )
 }
