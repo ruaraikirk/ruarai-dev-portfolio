@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Bio from "../sections/Bio"
 import Layout from "../components/Layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
