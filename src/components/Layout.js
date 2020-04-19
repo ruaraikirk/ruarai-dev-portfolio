@@ -70,7 +70,7 @@ const Layout = ({ location, title, children }) => {
           </Section>
         </HiddenBox>
         {/*<div id="to" />*/}
-        <header>{header}</header>
+        <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
