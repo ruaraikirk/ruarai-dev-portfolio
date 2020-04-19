@@ -47,8 +47,8 @@ const Scroll = styled.circle`
   fill: #000000;
 `;
 
-const MouseIcon = () => (
-  <ScrollLink>
+const MouseIcon = ({ onClick }) => (
+  <ScrollLink onClick={onClick}>
     <MouseContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130">
       <g fill="none">
         <Mouse width="70" height="118" x="1.5" y="1.5" rx="36" />
