@@ -1,10 +1,12 @@
-import React  from "react"
-import { Link } from "gatsby"
-import { createGlobalStyle } from 'styled-components'
-import { ScrollingProvider, Section } from "react-scroll-section"
-import HiddenBox from "./HiddenBox"
-import Hero from "../sections/Hero"
-import Header from "./Header"
+import React  from 'react'
+import { Link } from 'gatsby'
+import { createGlobalStyle,  ThemeProvider } from 'styled-components'
+import { ScrollingProvider, Section } from 'react-scroll-section'
+import preset from '@rebass/preset'
+import colors from '../../colors'
+import HiddenBox from './HiddenBox'
+import Hero from '../sections/Hero'
+import Header from './Header'
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -21,6 +23,16 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 `;
+
+const theme = {
+  ...preset,
+  colors,
+  fonts: {
+    body: 'Cabin, Open Sans, sans-serif',
+    heading: 'inherit',
+    monospace: 'monospace',
+  },
+};
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -60,24 +72,25 @@ const Layout = ({ location, title, children }) => {
   return (
     <main>
       <GlobalStyle />
-      <ScrollingProvider>
-        <HiddenBox
-          showIf={location.pathname === rootPath}
-        >
-          <Header />
-          <Section id="home">
-            <Hero />
-          </Section>
-        </HiddenBox>
-        {/*<div id="to" />*/}
-        <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </ScrollingProvider>
+      <ThemeProvider theme={theme}>
+        <ScrollingProvider>
+          <HiddenBox
+            showIf={location.pathname === rootPath}
+          >
+            <Header />
+            <Section id="home">
+              <Hero />
+            </Section>
+          </HiddenBox>
+          <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </ScrollingProvider>
+      </ThemeProvider>
     </main>
   )
 }

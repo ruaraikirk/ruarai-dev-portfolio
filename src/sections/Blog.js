@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Section } from "react-scroll-section"
-import Layout from "../components/Layout"
 
 const Blog = () => {
   const data = useStaticQuery(graphql`
@@ -38,11 +37,7 @@ const Blog = () => {
         return (
           <article key={node.fields.slug}>
             <header>
-              <h3
-                style={{
-                  // marginBottom: rhythm(1 / 4),
-                }}
-              >
+              <h3>
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
