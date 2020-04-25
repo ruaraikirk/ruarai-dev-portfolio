@@ -12,9 +12,118 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "technologies"
+    label: "Technologies"
+    folder: "content/technologies"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Stack", name: "stack", widget: "select", options: ["front-end", "back-end", "dev-ops", "infra"]}
+      - {
+        label: "Logo",
+        name: "logo",
+        widget: "image",
+        media_library: {
+          config: {
+            multiple: false
+          }
+        },
+        tagname: ''
+      }
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "opensource"
+    label: "Opensource"
+    folder: "content/opensource"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "experience"
+    label: "Experience"
+    folder: "content/experience"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Role", name: "role", widget: "string" }
+      - {
+        label: "Start Month",
+        name: "startMonth",
+        widget: "select",
+        options:
+          [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+      }
+      - { label: "Start Year", name: "startYear", widget: "string" }
+      - {
+        label: "End Month",
+        name: "endMonth",
+        widget: "select",
+        options:
+          [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+      }
+      - { label: "End Year", name: "endYear", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - {
+        label: "Company Logo",
+        name: "companyLogo",
+        widget: "image",
+        media_library: {
+          config: {
+            multiple: false
+          }
+        },
+        tagname: ''
+      }
