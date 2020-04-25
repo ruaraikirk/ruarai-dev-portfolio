@@ -1,16 +1,14 @@
-
 import React, { Fragment, useState } from 'react';
 import Headroom from 'react-headroom';
-// import { Flex, Image } from 'rebass';
+import { Box } from "rebass/styled-components"
 import styled from 'styled-components';
 import { SectionLinks } from 'react-scroll-section';
 import { Fade } from 'react-reveal';
 import RouteLink from './RouteLink';
 import { Squash as Hamburger } from 'hamburger-react'
-import Gatsby from '../../content/assets/gatsby-icon.png';
-import HiddenBox from "./HiddenBox"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
+import HomeIcon from '@material-ui/icons/Home';
+import { Icon } from "@material-ui/core"
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
@@ -60,7 +58,11 @@ const StyledMenu = styled.nav`
       color: #343078;
     }
   }
-`
+`;
+
+const StyledIcon = styled(Icon)`
+  cursor: pointer
+`;
 
 const formatLinks = allLinks =>
   Object.entries(allLinks).reduce(
@@ -116,18 +118,12 @@ const Header = () => {
               const { home, links } = formatLinks(allLinks);
 
               const homeLink = home && (
-                <img
-                  src={Gatsby}
-                  width="50px"
-                  alt="Portfolio Logo"
-                  onClick={() =>{
+                <StyledIcon>
+                  <HomeIcon fontSize="large" onClick={() => {
                     setOpen(false);
                     home.onClick();
-                  }}
-                  style={{
-                    cursor: 'pointer',
-                  }}
-                />
+                  }}/>
+                </StyledIcon>
               );
               const navLinks = links.map(({ name, value }) => (
                 <RouteLink
@@ -143,11 +139,15 @@ const Header = () => {
 
               return (
                 <Fragment>
+                  <Box m={[1, 2, 3, 4]}>
                   {homeLink}
+                  </Box>
+                  <Box m={[1, 2, 3, 4]}>
                   <Hamburger
                     toggled={isOpen}
                     toggle={setOpen}
                   />
+                  </Box>
                   <StyledMenu open={isOpen}>
                     {navLinks}
                   </StyledMenu>
