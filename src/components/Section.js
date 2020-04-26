@@ -38,7 +38,7 @@ Container.propTypes = {
 
 const Header = ({ name, icon = '', label = '' }) => (
   <Slide left>
-    <Heading color="secondaryDark" mb={6} fontSize={[ 5, 6, 7 ]}>
+    <Heading color="text" mb={[4, 3]} fontSize={[ 5, 6, 7 ]}>
       {name}
       {icon && (
         <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>

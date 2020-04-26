@@ -7,6 +7,7 @@ import colors from '../../colors'
 import HiddenBox from './HiddenBox'
 import Hero from '../sections/Hero'
 import Header from './Header'
+import Footer from "./Footer"
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -84,11 +85,12 @@ const Layout = ({ location, title, children }) => {
           </HiddenBox>
           <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <Footer />
+          {/*<footer>*/}
+          {/*  © {new Date().getFullYear()}, Built with*/}
+          {/*  {` `}*/}
+          {/*  <a href="https://www.gatsbyjs.org">Gatsby</a>*/}
+          {/*</footer>*/}
         </ScrollingProvider>
       </ThemeProvider>
     </main>
