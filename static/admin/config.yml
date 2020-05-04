@@ -15,7 +15,7 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "DD-MM-YYYY" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "technologies"
@@ -29,6 +29,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Stack", name: "stack", widget: "select", options: ["front-end", "back-end", "dev-ops", "infra"]}
+      - { label: "Website", name: "website", widget: "string" }
       - {
         label: "Logo",
         name: "logo",
@@ -49,9 +50,23 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY" }
       - { label: "Description", name: "description", widget: "string" }
+      - { label: "Project URL", name: "projectUrl", widget: "string" }
+      - { label: "Repository URL", name: "repositoryUrl", widget: "string" }
+      - { label: "Type", name: "type", widget: "select", options: ["front-end", "back-end", "full-stack", "dev-ops", "infra"]}
       - { label: "Body", name: "body", widget: "markdown" }
+      - {
+        label: "Thumbnail",
+        name: "thumbnail",
+        widget: "image",
+        media_library: {
+          config: {
+            multiple: false
+          }
+        },
+        tagname: ''
+      }
   - name: "opensource"
     label: "Opensource"
     folder: "content/opensource"
@@ -61,9 +76,21 @@ collections:
       preview: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Publish Date", name: "date", widget: "datetime", , format: "YYYY" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Project URL", name: "projectUrl", widget: "string" }
+      - { label: "Repository URL", name: "repositoryUrl", widget: "string" }
+      - {
+        label: "Thumbnail",
+        name: "thumbnail",
+        widget: "image",
+        media_library: {
+          config: {
+            multiple: false
+          }
+        },
+        tagname: ''
+      }
   - name: "experience"
     label: "Experience"
     folder: "content/experience"
@@ -116,6 +143,7 @@ collections:
       }
       - { label: "End Year", name: "endYear", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Website", name: "website", widget: "string" }
       - {
         label: "Company Logo",
         name: "companyLogo",

@@ -44,6 +44,7 @@ const Technologies = () => {
   return (
     <Container id="technologies" Background={Background}>
       <Header name="Technologies" icon="🛠" label="tools"  />
+    {/* TODO Mini cards for technologies */}
     </Container>
   )
 }

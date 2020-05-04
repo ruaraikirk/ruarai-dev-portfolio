@@ -14,7 +14,7 @@ const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
-    background: #EFFFFA;
+    background-color: ${(props) => props.theme.colors.backgroundDark}f2;
   }
   position: absolute;
   width: 100%;
@@ -24,12 +24,12 @@ const StyledMenu = styled.nav`
   z-index: -1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: #EFFFFA;
+  justify-content: space-around;
+  background: ${(props) => props.theme.colors.backgroundDark}f2;
   transform: ${({ open }) => open ? 'translateX(0%)' : 'translateX(100%)'};
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 4rem 2rem;
   position: absolute;
   top: 0;
   right: 0;
