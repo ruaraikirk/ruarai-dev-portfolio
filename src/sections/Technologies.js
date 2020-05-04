@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Section from '../components/Section'
 import { Triangle } from '../components/Triangle'
-import TechnologiesGrid from "../components/TechnologiesGrid"
 
 const { Container, Header } = Section;
 
@@ -45,7 +44,7 @@ const Technologies = () => {
   return (
     <Container id="technologies" Background={Background}>
       <Header name="Technologies" icon="🛠" label="tools"  />
-      <TechnologiesGrid />
+    {/* TODO Mini cards for technologies */}
     </Container>
   )
 }
