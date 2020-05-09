@@ -1,4 +1,4 @@
-import React  from 'react'
+import React   from 'react'
 import { Link } from 'gatsby'
 import { createGlobalStyle,  ThemeProvider } from 'styled-components'
 import { ScrollingProvider, Section } from 'react-scroll-section'
@@ -34,6 +34,16 @@ const theme = {
     monospace: 'monospace',
   },
 };
+// TODO can easily use hooks and theme provider to switch dark and light mode, but a lot of style restructure needed.
+// const themeDark = {
+//   ...preset,
+//   colors: colorsDark,
+//   fonts: {
+//     body: 'Cabin, Open Sans, sans-serif',
+//     heading: 'inherit',
+//     monospace: 'monospace',
+//   },
+// };
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -86,11 +96,6 @@ const Layout = ({ location, title, children }) => {
           <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
           <main>{children}</main>
           <Footer />
-          {/*<footer>*/}
-          {/*  © {new Date().getFullYear()}, Built with*/}
-          {/*  {` `}*/}
-          {/*  <a href="https://www.gatsbyjs.org">Gatsby</a>*/}
-          {/*</footer>*/}
         </ScrollingProvider>
       </ThemeProvider>
     </main>
