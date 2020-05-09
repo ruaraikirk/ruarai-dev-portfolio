@@ -1,10 +1,12 @@
 import React from "react"
-import {Grid, Icon} from '@material-ui/core';
+import { Icon } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import styled, { keyframes }  from 'styled-components';
+import { Box, Flex } from "rebass/styled-components"
+import Fade from "react-reveal/Fade"
 
 const TypewriterTextLarge = keyframes`
    from{width: 0;}
@@ -41,46 +43,43 @@ const Typewriter = styled.div`
   }
 `;
 
-const StyledGrid = styled(Grid)`
-  flex-grow: 1;
-  width: 420px;
-`;
-
 const StyledIcon = styled(Icon)`
   cursor: pointer
 `;
 
 const HeroContent = () => {
   return (
-    <StyledGrid>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
+    <Flex alignSelf='center' flexDirection='column' width={[300, 410]} mx={-2}>
+      <Fade left>
+        <Box width={1}>
           <Typewriter>Hello World! I'm Ruaraí.</Typewriter>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={3}>
-          <StyledIcon>
-            <GitHubIcon fontSize="large" onClick={() => window.open('https://github.com/ruaraikirk')}/>
-          </StyledIcon>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledIcon>
-            <LinkedInIcon fontSize="large" onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
-          </StyledIcon>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledIcon>
-            <MailOutlineIcon fontSize="large" onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
-          </StyledIcon>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledIcon>
-            <InstagramIcon fontSize="large" onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
-          </StyledIcon>
-        </Grid>
-      </Grid>
-    </StyledGrid>
+        </Box>
+      </Fade>
+      <Flex justifyContent='space-between'>
+        <Fade right>
+          <Box key="header_github">
+            <StyledIcon>
+              <GitHubIcon fontSize="large" onClick={() => window.open('https://github.com/ruaraikirk')}/>
+            </StyledIcon>
+          </Box>
+          <Box key="header_linkedin">
+            <StyledIcon>
+              <LinkedInIcon fontSize="large" onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
+            </StyledIcon>
+          </Box>
+          <Box key="header_mail">
+            <StyledIcon>
+              <MailOutlineIcon fontSize="large" onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
+            </StyledIcon>
+          </Box>
+          <Box key="header_instagram">
+            <StyledIcon>
+              <InstagramIcon fontSize="large" onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
+            </StyledIcon>
+          </Box>
+        </Fade>
+      </Flex>
+    </Flex>
   )
 }
 

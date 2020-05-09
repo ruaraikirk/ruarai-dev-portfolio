@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Headroom from 'react-headroom';
-import { Box } from "rebass/styled-components"
+import { Flex, Box } from "rebass/styled-components"
 import styled from 'styled-components';
 import { SectionLinks } from 'react-scroll-section';
 import { Fade } from 'react-reveal';
@@ -8,9 +8,37 @@ import RouteLink from './RouteLink';
 import { Squash as Hamburger } from 'hamburger-react'
 import { graphql, useStaticQuery } from "gatsby"
 import HomeIcon from '@material-ui/icons/Home';
-import { Icon } from "@material-ui/core"
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import NightsStayIcon from '@material-ui/icons/NightsStay';
+import { Icon, Switch, withStyles } from "@material-ui/core"
+import { green } from "@material-ui/core/colors"
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
+
+const DarkModeToggle = () => {
+  const [state, setState] = React.useState({
+    checkedA: true,
+    checkedB: true,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  return (
+    <Flex justifyContent='space-around'>
+      <WbSunnyIcon fontSize="large" />
+      <Switch
+        checked={state.checkedB}
+        onChange={handleChange}
+        color="default"
+        name="checkedB"
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+      />
+      <NightsStayIcon fontSize="large" />
+    </Flex>
+  )
+};
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
@@ -136,6 +164,8 @@ const Header = () => {
                   name={name}
                 />
               ));
+
+              navLinks.push(<DarkModeToggle />);
 
               return (
                 <Fragment>

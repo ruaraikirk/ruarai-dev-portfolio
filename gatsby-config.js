@@ -10,7 +10,18 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'images'
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -22,19 +33,26 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        path: `${__dirname}/content/technologies`,
+        name: `technologies`,
       },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          'gatsby-remark-relative-images',
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
             },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: `${__dirname}/static/img`
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -55,6 +73,9 @@ module.exports = {
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
     },
     `gatsby-plugin-feed`,
     {
