@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { SectionLink } from 'react-scroll-section'
 import HeroContent from "../components/HeroContent"
 import MouseIcon from "../components/MouseIcon"
-import animateScrollTo from "animated-scroll-to"
 
 const Container = styled.div`
   display: flex;
@@ -65,16 +64,6 @@ const Hero = () => {
   `)
 
   const { author } = data.site.siteMetadata
-  const scrollWindow = () => {
-    const scrollPoint = document.getElementById('to');
-    if (scrollPoint) {
-      const windowScrollTop = window.scrollY || window.pageYOffset;
-      const dataRect = scrollPoint.getBoundingClientRect();
-      animateScrollTo(dataRect.top + dataRect.height + windowScrollTop, {
-        speed: 1000,
-      });
-    }
-  };
 
   return (
     <Container>
@@ -84,17 +73,9 @@ const Hero = () => {
       />
       <Overlay>
         <HeroContent />
-        {/*<span*/}
-        {/*  role="button"*/}
-        {/*  onClick={() => scrollWindow()}*/}
-        {/*  onKeyDown={() => scrollWindow()}*/}
-        {/*  tabIndex={0}*/}
-        {/*>*/}
         <SectionLink section="bio">
-          {/*<MouseIcon onClick={scrollWindow} />*/}
           {({ onClick }) => <MouseIcon onClick={onClick} />}
         </SectionLink>
-        {/*</span>*/}
       </Overlay>
     </Container>
   )

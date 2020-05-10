@@ -5,7 +5,7 @@ const LinkAnimated = styled.span`
   position: relative;
   margin-bottom: 0;
   padding-bottom: 5px;
-  color: inherit;
+  color:  ${props => props.theme.colors.text};
   ${props =>
   props.selected &&
   `border-bottom:  5px solid ${props.theme.colors.primaryLight}`};
@@ -18,7 +18,7 @@ const LinkAnimated = styled.span`
     right: 0;
     width: 0;
     bottom: -5px;
-    background: ${props => props.theme.colors.secondaryLight};
+    background: ${props => props.theme.colors.secondary};
     height: 5px;
     transition-property: width;
     transition-duration: 0.3s;

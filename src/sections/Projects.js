@@ -16,7 +16,7 @@ const { Container, Header } = Section;
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
+      color="primary"
       height={['15vh', '10vh']}
       width={['100vw', '100vw']}
       invertX
@@ -98,6 +98,7 @@ const ProjectTag = styled.div`
 
 const ProjectCard = styled(Card)`
   width: ${CARD_WIDTH};
+  background-color: ${(props) => props.theme.colors.backgroundDark};
   ${MEDIA_QUERY_SMALL} {
     width: calc(${CARD_WIDTH} - 50px);
     padding: 10px;
@@ -149,11 +150,11 @@ const Project = ({
               />
             </Box>
           </Flex>
-          <ImageSubtitle bg="primary" color="white" y="bottom" x="right" round>
+          <ImageSubtitle bg="primary" color="text" y="bottom" x="right">
             {type}
           </ImageSubtitle>
           <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="backgroundDark">{projectYear}</ImageSubtitle>
+            <ImageSubtitle bg="secondary" color="text" round>{projectYear}</ImageSubtitle>
           </Hide>
         </ProjectTag>
       </ImageContainer>

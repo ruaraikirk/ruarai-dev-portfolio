@@ -19,14 +19,14 @@ const { Container, Header } = Section;
 const Background = () => (
   <div>
     <Triangle
-      color="secondaryLight"
+      color="primaryLight"
       height={['80vh', '80vh']}
       width={['100vw', '100vw']}
       invertX
     />
 
     <Triangle
-      color="background"
+      color="secondary"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertX
@@ -41,7 +41,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="primary"
       height={['25vh', '20vh']}
       width={['100vw', '100vw']}
       invertY
@@ -54,18 +54,6 @@ const CARD_WIDTH = '180px';
 
 const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
 
-const Title = styled(Text)`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: table;
-  border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
-  ${MEDIA_QUERY_SMALL} {
-    font-size: 12px;
-    font-weight: 500;
-  }
-`;
-
 const ImageContainer = styled.div`
   margin: auto;
   width: ${CARD_HEIGHT};
@@ -74,7 +62,6 @@ const ImageContainer = styled.div`
   }
 `;
 
-// TODO Maybe need to change to Gatsby Image
 const TechImage = styled(Image)`
   width: ${CARD_HEIGHT};
   height: ${CARD_HEIGHT};
@@ -101,6 +88,7 @@ const TechTag = styled.div`
 
 const TechCard = styled(Card)`
   width: ${CARD_WIDTH};
+  background-color: ${(props) => props.theme.colors.backgroundDark};
   ${MEDIA_QUERY_SMALL} {
     width: calc(${CARD_WIDTH} - 50px);
     padding: 10px;
@@ -111,7 +99,6 @@ const Technology = ({name, website, stack, featuredImage}) => (
   <TechCard p={0} >
     <Flex sx={{ height: CARD_HEIGHT }}>
       <ImageContainer>
-        {/*<TechImage src={logo} alt="alt" />*/}
         <TechImage
           fluid={featuredImage}
           alt={name}
@@ -120,23 +107,13 @@ const Technology = ({name, website, stack, featuredImage}) => (
           <Flex
             justifyContent="space-around"
           >
-            {/*<Title my={2} pb={1} color="text">*/}
-            {/*  {name}*/}
-            {/*</Title>*/}
-            {/*<Box mx={1} fontSize={5}>*/}
-            {/*  <SocialLink*/}
-            {/*    name="Visit site"*/}
-            {/*    icon="globe"*/}
-            {/*    url={website}*/}
-            {/*  />*/}
-            {/*</Box>*/}
           </Flex>
-          <ImageSubtitle bg="primary" color="background" y="bottom">
+          <ImageSubtitle bg="primary" color="text" y="bottom">
             {stack}
           </ImageSubtitle>
-          {/*<Hide query={MEDIA_QUERY_SMALL}>*/}
-            <ImageSubtitle bg="secondary" x="right">{name}</ImageSubtitle>
-          {/*</Hide>*/}
+          <ImageSubtitle bg="secondary" color="text" x="right">
+            {name}
+          </ImageSubtitle>
         </TechTag>
       </ImageContainer>
     </Flex>
