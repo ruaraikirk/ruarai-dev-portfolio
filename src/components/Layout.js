@@ -1,9 +1,9 @@
-import React   from 'react'
+import React, { useState } from "react"
 import { Link } from 'gatsby'
 import { createGlobalStyle,  ThemeProvider } from 'styled-components'
 import { ScrollingProvider, Section } from 'react-scroll-section'
 import preset from '@rebass/preset'
-import colors from '../../colors'
+// import colors from '../../colors'
 import HiddenBox from './HiddenBox'
 import Hero from '../sections/Hero'
 import Header from './Header'
@@ -25,9 +25,39 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = {
+const colorsLight = {
+  background: '#FFFFFF',
+  backgroundDark: '#f2eaec',
+
+  text: '#000000',
+
+  primary: '#50b6bb',
+  primaryLight: '#0ce5e1',
+  primaryDark: '#45969b',
+
+  secondary: '#ff0340',
+  // secondaryLight: '#8abaae',
+  // secondaryDark: '#2e856e',
+};
+
+const colorsDark = {
+  background: '#121212',
+  backgroundDark: '#363537',
+
+  text: '#FFFFFF',
+
+  primary: '#5a189a',
+  primaryLight: '#7b2cbf',
+  primaryDark: '#3c096c',
+
+  secondary: '#03dac5',
+  // secondaryLight: '#6f523b',
+  // secondaryDark: '#4a473e',
+};
+
+const themeLight = {
   ...preset,
-  colors,
+  colors: colorsLight,
   fonts: {
     body: 'Cabin, Open Sans, sans-serif',
     heading: 'inherit',
@@ -35,19 +65,29 @@ const theme = {
   },
 };
 // TODO can easily use hooks and theme provider to switch dark and light mode, but a lot of style restructure needed.
-// const themeDark = {
-//   ...preset,
-//   colors: colorsDark,
-//   fonts: {
-//     body: 'Cabin, Open Sans, sans-serif',
-//     heading: 'inherit',
-//     monospace: 'monospace',
-//   },
-// };
+const themeDark = {
+  ...preset,
+  colors: colorsDark,
+  fonts: {
+    body: 'Cabin, Open Sans, sans-serif',
+    heading: 'inherit',
+    monospace: 'monospace',
+  },
+};
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
+
+  const [theme, setTheme] = useState(false);
+  const toggleTheme = () => {
+    setTheme(!theme)
+    if (theme) {
+      document.body.style.backgroundColor = "transparent";
+    } else {
+      document.body.style.backgroundColor = "#121212";
+    }
+  }
 
   if (location.pathname === rootPath) {
     header = (
@@ -83,12 +123,12 @@ const Layout = ({ location, title, children }) => {
   return (
     <main>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={!theme ? themeLight : themeDark}>
         <ScrollingProvider>
           <HiddenBox
             showIf={location.pathname === rootPath}
           >
-            <Header />
+            <Header checked={theme} toggleTheme={toggleTheme}/>
             <Section id="home">
               <Hero />
             </Section>

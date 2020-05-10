@@ -10,35 +10,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import HomeIcon from '@material-ui/icons/Home';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
-import { Icon, Switch, withStyles } from "@material-ui/core"
-import { green } from "@material-ui/core/colors"
+import { Icon, Switch } from "@material-ui/core"
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
-
-const DarkModeToggle = () => {
-  const [state, setState] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
-  return (
-    <Flex justifyContent='space-around'>
-      <WbSunnyIcon fontSize="large" />
-      <Switch
-        checked={state.checkedB}
-        onChange={handleChange}
-        color="default"
-        name="checkedB"
-        inputProps={{ 'aria-label': 'primary checkbox' }}
-      />
-      <NightsStayIcon fontSize="large" />
-    </Flex>
-  )
-};
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
@@ -55,9 +29,9 @@ const StyledMenu = styled.nav`
   justify-content: space-around;
   background: ${(props) => props.theme.colors.backgroundDark}f2;
   transform: ${({ open }) => open ? 'translateX(0%)' : 'translateX(100%)'};
-  height: 100vh;
+  height: 120vh;
   text-align: left;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 10rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -89,8 +63,26 @@ const StyledMenu = styled.nav`
 `;
 
 const StyledIcon = styled(Icon)`
-  cursor: pointer
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.text};
 `;
+
+const DarkModeToggle = ({ checked, toggleTheme }) => {
+
+  return (
+    <Flex justifyContent='space-around'>
+      <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
+      <Switch
+        checked={checked}
+        onChange={toggleTheme}
+        color="default"
+        name="checkedB"
+        inputProps={{ 'aria-label': 'primary checkbox' }}
+      />
+      <StyledIcon><NightsStayIcon fontSize="medium" /></StyledIcon>
+    </Flex>
+  )
+};
 
 const formatLinks = allLinks =>
   Object.entries(allLinks).reduce(
@@ -109,7 +101,7 @@ const formatLinks = allLinks =>
     { links: [], home: null },
   );
 
-const Header = () => {
+const Header = (props) => {
   const [isOpen, setOpen] = useState(false)
   const data = useStaticQuery(graphql`
     query {
@@ -165,7 +157,7 @@ const Header = () => {
                 />
               ));
 
-              navLinks.push(<DarkModeToggle />);
+              navLinks.push(<DarkModeToggle checked={props.checked} toggleTheme={props.toggleTheme} />);
 
               return (
                 <Fragment>
@@ -173,10 +165,12 @@ const Header = () => {
                   {homeLink}
                   </Box>
                   <Box m={[1, 2, 3, 4]}>
-                  <Hamburger
-                    toggled={isOpen}
-                    toggle={setOpen}
-                  />
+                  <StyledIcon>
+                    <Hamburger
+                      toggled={isOpen}
+                      toggle={setOpen}
+                    />
+                  </StyledIcon>
                   </Box>
                   <StyledMenu open={isOpen}>
                     {navLinks}

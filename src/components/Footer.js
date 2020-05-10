@@ -25,18 +25,18 @@ const FooterContainer = styled.div`
 `;
 
 const TextFooter = styled(Text)`
-  color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
   & a {
-    color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
     transition: color ease 0.5s;
     &:hover {
-      color: ${(props) => props.theme.colors.primaryLight};
+      color: ${(props) => props.theme.colors.secondary};
     }
   }
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.text};
   cursor: pointer
 `;
 

@@ -29,7 +29,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="primaryLight"
       height={['40vh', '15vh']}
       width={['100vw', '100vw']}
       invertY
@@ -45,6 +45,7 @@ const CoverImage = styled.img`
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
+  text-color: ${(props) => props.theme.colors.text};
   text-overflow: ellipsis;
   display: -webkit-inline-box;
   -webkit-line-clamp: 2;
@@ -52,13 +53,17 @@ const EllipsisHeading = styled(Heading)`
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `;
 
-const OpensourceCard = ({ name, description, projectYear, repositoryUrl, projectUrl }) => (
+const OpensourceCard = styled(Card)`
+  background-color: ${(props) => props.theme.colors.backgroundDark};
+`;
+
+const OpensourceProject = ({ name, description, projectYear, repositoryUrl, projectUrl }) => (
   <Flex
     flexDirection="column"
     justifyContent="space-between"
     style={{ height: '100%' }}
   >
-    <Card pb={4}>
+    <OpensourceCard pb={4}>
       <EllipsisHeading m={3} p={1} color="text">
         {name}
       </EllipsisHeading>
@@ -86,14 +91,14 @@ const OpensourceCard = ({ name, description, projectYear, repositoryUrl, project
       <Text m={3} color="text">
         {description}
       </Text>
-      <ImageSubtitle bg="primary" color="white" x="right" y="bottom">
+      <ImageSubtitle bg="primary" color="text" x="right" y="bottom">
         {`${projectYear}`}
       </ImageSubtitle>
-    </Card>
+    </OpensourceCard>
   </Flex>
 );
 
-OpensourceCard.propTypes = {
+OpensourceProject.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   // image: PropTypes.string.isRequired,
@@ -112,12 +117,11 @@ const fakeProject = {
 };
 
 const Opensource = () => {
-
   return (
     <Container id="opensource" Background={Background}>
       <Header name="Opensource" icon="🤝" label="handshake"  />
       <Fade bottom key="TBC">
-        <OpensourceCard {...fakeProject} key='TBCC' />
+        <OpensourceProject {...fakeProject} key='TBCC' />
       </Fade>
     </Container>
   )

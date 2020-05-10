@@ -28,7 +28,7 @@ const Typewriter = styled.div`
   white-space: nowrap;
   overflow: hidden;
   font-family: 'Source Code Pro', monospace;
-  color: #000000;
+  color: ${(props) => props.theme.colors.text};
   margin: 0 auto;
   font-size: 28px;
   @media screen and (min-width: 601px) {
@@ -44,17 +44,16 @@ const Typewriter = styled.div`
 `;
 
 const StyledIcon = styled(Icon)`
-  cursor: pointer
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.text};
 `;
 
 const HeroContent = () => {
   return (
     <Flex alignSelf='center' flexDirection='column' width={[300, 410]} mx={-2}>
-      <Fade left>
-        <Box width={1}>
-          <Typewriter>Hello World! I'm Ruaraí.</Typewriter>
-        </Box>
-      </Fade>
+      <Box width={1}>
+        <Typewriter>Hello World! I'm Ruaraí.</Typewriter>
+      </Box>
       <Flex justifyContent='space-between'>
         <Fade right>
           <Box key="header_github">

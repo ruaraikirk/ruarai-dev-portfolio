@@ -8,6 +8,7 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import StarsIcon from '@material-ui/icons/Stars';
 import ImageSubtitle from "../components/ImageSubtitle"
+import '../styles/customTimeline.css'
 
 const { Container, Header } = Section;
 
@@ -17,7 +18,7 @@ const { Container, Header } = Section;
 const Background = () => (
   <div>
     <Triangle
-      color="backgroundDark"
+      color="primaryLight"
       height={['15vh', '30vh']}
       width={['100vw', '100vw']}
       invertX
@@ -113,12 +114,12 @@ const Experience = () => {
   return (
     <Container id="experience" Background={Background}>
       <Header name="Experience" icon="💼" label="briefcase"  />
-      <VerticalTimeline>
+      <VerticalTimeline className="vertical-timeline-custom-line">
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" color="white" y="bottom" x="left">July 2019 - present</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="left">July 2019 - present</ImageSubtitle>}
           icon={<Image
             fluid={data.continuous.childImageSharp.fluid}
             alt={data.continuous.childImageSharp.originalName}
@@ -143,9 +144,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="right">Jan 2019 - July 2019</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="right">Jan 2019 - July 2019</ImageSubtitle>}
           icon={<Image
             fluid={data.sap.childImageSharp.fluid}
             alt={data.sap.childImageSharp.originalName}
@@ -170,9 +171,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="left">2017 - 2019</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="left">2017 - 2019</ImageSubtitle>}
           icon={<Image
             fluid={data.tud.childImageSharp.fluid}
             alt={data.tud.childImageSharp.originalName}
@@ -197,9 +198,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="right">Nov 2016 - Jan 2018</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="right">Nov 2016 - Jan 2018</ImageSubtitle>}
           icon={<Image
             fluid={data.kpmg.childImageSharp.fluid}
             alt={data.kpmg.childImageSharp.originalName}
@@ -224,9 +225,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="left">Nov 2012 - July 2016</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="left">Nov 2012 - July 2016</ImageSubtitle>}
           icon={<Image
             fluid={data.intel.childImageSharp.fluid}
             alt={data.intel.childImageSharp.originalName}
@@ -251,9 +252,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="right">2011 - 2012</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="right">2011 - 2012</ImageSubtitle>}
           icon={<Image
             fluid={data.edinburgh.childImageSharp.fluid}
             alt={data.edinburgh.childImageSharp.originalName}
@@ -278,9 +279,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="left">2010 - 2011</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="left">2010 - 2011</ImageSubtitle>}
           icon={<Image
             fluid={data.heriot.childImageSharp.fluid}
             alt={data.heriot.childImageSharp.originalName}
@@ -305,9 +306,9 @@ const Experience = () => {
         </VerticalTimelineElement>
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          contentStyle={{ background: `${(props) => props.theme.colors.secondaryLight}`, color: '#000' }}
-          contentArrowStyle={{ borderRight: `7px solid ${(props) => props.theme.colors.secondaryLight}` }}
-          date={<ImageSubtitle bg="backgroundDark" y="bottom" x="right">2007 - 2010</ImageSubtitle>}
+          contentStyle={{ background: '#c5c6c6', color: `#000` }}
+          contentArrowStyle={{ borderRight: '7px solid #c5c6c6' }}
+          date={<ImageSubtitle bg="primary" color="text" y="bottom" x="right">2007 - 2010</ImageSubtitle>}
           icon={<Image
             fluid={data.dkit.childImageSharp.fluid}
             alt={data.dkit.childImageSharp.originalName}

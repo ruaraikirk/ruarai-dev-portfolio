@@ -21,7 +21,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="primary"
       height={['30vh', '15vh']}
       width={['70vw', '40vw']}
       invertX
@@ -52,13 +52,17 @@ const EllipsisHeading = styled(Heading)`
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `;
 
+const BlogCard = styled(Card)`
+  background-color: ${(props) => props.theme.colors.backgroundDark};
+`;
+
 const Post = ({ title, description, date }) => (
   <Flex
     flexDirection="column"
     justifyContent="space-between"
     style={{ height: '100%' }}
   >
-  <Card pb={4}>
+  <BlogCard pb={4}>
     <EllipsisHeading m={3} p={1} color="text">
       {title}
     </EllipsisHeading>
@@ -69,7 +73,7 @@ const Post = ({ title, description, date }) => (
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
       {`${date} - ${Math.ceil(3)} min`}
     </ImageSubtitle>
-  </Card>
+  </BlogCard>
   </Flex>
 );
 
