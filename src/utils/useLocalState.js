@@ -24,9 +24,9 @@ const useLocalState = () => {
   }
 
   if (!stateValue) {
-    if (typeof document !== `undefined`) document.body.style.backgroundColor = "transparent";
+    if (typeof document !== 'undefined') document.body.style.backgroundColor = "transparent";
   } else {
-    if (typeof document !== `undefined`) document.body.style.backgroundColor = "#121212";
+    if (typeof document !== 'undefined') document.body.style.backgroundColor = "#121212";
   }
 
   return [local, setLocal];
