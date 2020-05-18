@@ -8,7 +8,9 @@ import { useState } from "react"
  */
 
 const useLocalState = () => {
-  const stateValue = localStorage.getItem('darkTheme') === null ? false : localStorage.getItem('darkTheme') === 'true';
+  const windowGlobal = typeof window !== 'undefined' && window // https://github.com/gatsbyjs/gatsby/issues/309#issuecomment-302043875
+  const stateValue = windowGlobal.localStorage.getItem('darkTheme') === null
+    ? false : windowGlobal.localStorage.getItem('darkTheme') === 'true';
   const [local, setState] = useState(stateValue);
   const setLocal = (newThemeState) => {
     localStorage.setItem('darkTheme', newThemeState)
