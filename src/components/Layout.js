@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { createGlobalStyle,  ThemeProvider } from 'styled-components'
 import { ScrollingProvider, Section } from 'react-scroll-section'
 import preset from '@rebass/preset'
-// import colors from '../../colors'
+import useLocalState from "../utils/useLocalState"
 import HiddenBox from './HiddenBox'
 import Hero from '../sections/Hero'
 import Header from './Header'
@@ -36,8 +36,6 @@ const colorsLight = {
   primaryDark: '#45969b',
 
   secondary: '#ff0340',
-  // secondaryLight: '#8abaae',
-  // secondaryDark: '#2e856e',
 };
 
 const colorsDark = {
@@ -51,8 +49,6 @@ const colorsDark = {
   primaryDark: '#3c096c',
 
   secondary: '#03dac5',
-  // secondaryLight: '#6f523b',
-  // secondaryDark: '#4a473e',
 };
 
 const themeLight = {
@@ -64,7 +60,7 @@ const themeLight = {
     monospace: 'monospace',
   },
 };
-// TODO can easily use hooks and theme provider to switch dark and light mode, but a lot of style restructure needed.
+
 const themeDark = {
   ...preset,
   colors: colorsDark,
@@ -76,17 +72,12 @@ const themeDark = {
 };
 
 const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+  const rootPath = `${__PATH_PREFIX__}/`;
+  let header;
+  const [theme, setTheme] = useLocalState();
 
-  const [theme, setTheme] = useState(false);
   const toggleTheme = () => {
     setTheme(!theme)
-    if (theme) {
-      document.body.style.backgroundColor = "transparent";
-    } else {
-      document.body.style.backgroundColor = "#121212";
-    }
   }
 
   if (location.pathname === rootPath) {
@@ -123,7 +114,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <main>
       <GlobalStyle />
-      <ThemeProvider theme={!theme ? themeLight : themeDark}>
+      <ThemeProvider theme={theme ? themeDark : themeLight}>
         <ScrollingProvider>
           <HiddenBox
             showIf={location.pathname === rootPath}
