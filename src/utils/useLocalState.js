@@ -8,7 +8,8 @@ import { useState } from "react"
  */
 
 const useLocalState = () => {
-  const windowGlobal = typeof window !== 'undefined' && window // https://github.com/gatsbyjs/gatsby/issues/309#issuecomment-302043875
+  // TODO check how to deal with refresh scenario
+  const windowGlobal = typeof window !== 'undefined' && window // https://www.gatsbyjs.org/docs/debugging-html-builds/#how-to-check-if-window-is-defined
   let stateValue;
   if (typeof window !== 'undefined') {
     stateValue = windowGlobal.localStorage.getItem('darkTheme') === null
@@ -24,9 +25,9 @@ const useLocalState = () => {
   }
 
   if (!stateValue) {
-    if (typeof document !== 'undefined') document.body.style.backgroundColor = "transparent";
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') document.body.style.backgroundColor = "transparent";
   } else {
-    if (typeof document !== 'undefined') document.body.style.backgroundColor = "#121212";
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') document.body.style.backgroundColor = "#121212";
   }
 
   return [local, setLocal];
