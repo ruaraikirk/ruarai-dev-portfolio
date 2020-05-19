@@ -73,7 +73,7 @@ const DarkModeToggle = ({ checked, toggleTheme }) => {
     <Flex justifyContent='space-around'>
       <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
       <Switch
-        checked={checked}
+        checked={checked === 'dark'}
         onChange={toggleTheme}
         color="default"
         name="checkedB"
