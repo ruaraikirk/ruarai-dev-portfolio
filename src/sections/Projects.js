@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import Image from "gatsby-image"
 import Section from '../components/Section'
 import { Triangle } from '../components/Triangle'
-import { Image, Text, Flex, Box } from 'rebass/styled-components';
+import { Text, Flex, Box, Heading } from 'rebass/styled-components';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import { CardContainer, Card } from '../components/Card';
 import SocialLink from '../components/SocialLink';
 import ImageSubtitle from '../components/ImageSubtitle';
-import Hide from '../components/Hide';
 
 const { Container, Header } = Section;
 
@@ -24,14 +24,14 @@ const Background = () => (
 
     <Triangle
       color="secondary"
-      height={['50vh', '40vh']}
+      height={['25vh', '20vh']}
       width={['70vw', '40vw']}
       invertY
     />
 
     <Triangle
       color="primaryDark"
-      height={['40vh', '15vh']}
+      height={['30vh', '10vh']}
       width={['100vw', '100vw']}
       invertX
       invertY
@@ -44,45 +44,20 @@ const CARD_WIDTH = '400px';
 
 const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
 
-const Title = styled(Text)`
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: table;
+const EllipsisHeading = styled(Heading)`
+  overflow: hidden;
+  text-color: ${(props) => props.theme.colors.text};
+  text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `;
 
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 100%;
-  width: calc(100% - ${CARD_HEIGHT});
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(100% - (${CARD_HEIGHT} / 2));
-  }
-`;
-
-const ImageContainer = styled.div`
-  margin: auto;
-  width: ${CARD_HEIGHT};
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(${CARD_HEIGHT} / 2);
-  }
-`;
-
-// TODO Maybe need to change to Gatsby Image
 const ProjectImage = styled(Image)`
-  width: ${CARD_HEIGHT};
-  height: ${CARD_HEIGHT};
-  padding: 40px;
-  margin-top: 0px;
-  ${MEDIA_QUERY_SMALL} {
-    height: calc(${CARD_HEIGHT} / 2);
-    width: calc(${CARD_HEIGHT} / 2);
-    margin-top: calc(${CARD_HEIGHT} / 4);
-    padding: 10px;
-  }
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 `;
 
 const ProjectTag = styled.div`
@@ -97,69 +72,67 @@ const ProjectTag = styled.div`
 `;
 
 const ProjectCard = styled(Card)`
-  width: ${CARD_WIDTH};
+  // width: ${CARD_WIDTH};
   background-color: ${(props) => props.theme.colors.backgroundDark};
-  ${MEDIA_QUERY_SMALL} {
-    width: calc(${CARD_WIDTH} - 50px);
-    padding: 10px;
-  }
+  // ${MEDIA_QUERY_SMALL} {
+  //   width: calc(${CARD_WIDTH} - 50px);
+  //   padding: 10px;
+  // }
 `;
 
 const Project = ({
-                   name,
+                   title,
                    description,
                    projectUrl,
                    repositoryUrl,
                    type,
-                   projectYear,
-                   logo,
+                   year,
+                   fluid,
+                   slug
                  }) => (
-  <ProjectCard p={0} >
-    <Flex style={{ height: CARD_HEIGHT }}>
-      <TextContainer>
-        <span>
-          <Title my={2} pb={1} color="text">
-            {name}
-          </Title>
-        </span>
-        <Text width={[1]} style={{ overflow: 'auto' }} color="text">
+  <Flex
+    flexDirection="column"
+    justifyContent="space-between"
+    style={{ height: '100%' }}
+  >
+    <ProjectCard pb={4}>
+      <EllipsisHeading m={3} p={1} color="text">
+        {title}
+      </EllipsisHeading>
+      <Flex
+        style={{
+          float: 'right',
+        }}
+      >
+        <Box mx={1} fontSize={5}>
+          <SocialLink
+            name="Check repository"
+            icon="github"
+            url={repositoryUrl}
+          />
+        </Box>
+        <Box mx={1} fontSize={5}>
+          <SocialLink
+            name="See project"
+            icon="globe"
+            url={projectUrl}
+          />
+        </Box>
+      </Flex>
+      <Link style={{ boxShadow: `none` }} to={slug}>
+        <ProjectImage
+          fluid={fluid}
+          alt={title}
+        />
+        <Text m={3} color="text">
           {description}
         </Text>
-      </TextContainer>
-
-      <ImageContainer>
-        <ProjectImage src="https://cdn.pixabay.com/photo/2019/04/04/15/17/smartphone-4103051_1280.jpg" alt="alt" />
-        <ProjectTag>
-          <Flex
-            style={{
-              float: 'right',
-            }}
-          >
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="Check repository"
-                icon="github"
-                url={repositoryUrl}
-              />
-            </Box>
-            <Box mx={1} fontSize={5}>
-              <SocialLink
-                name="See project"
-                icon="globe"
-                url={projectUrl}
-              />
-            </Box>
-          </Flex>
-          <ImageSubtitle bg="primary" color="text" y="bottom" x="right">
-            {type}
-          </ImageSubtitle>
-          <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="secondary" color="text" round>{projectYear}</ImageSubtitle>
-          </Hide>
-        </ProjectTag>
-      </ImageContainer>
-    </Flex>
-  </ProjectCard>
+      </Link>
+      <ImageSubtitle bg="primary" color="text" x="right" y="bottom">
+        {`${year}`}
+      </ImageSubtitle>
+    </ProjectCard>
+  </Flex>
 );
 
 const fakeProject = {
@@ -173,55 +146,88 @@ const fakeProject = {
 };
 
 const Projects = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMarkdownRemark(
+        filter: {fileAbsolutePath: {regex: "/(\\/content\\/projects)/.*\\\\.md$/"}}
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              date(formatString: "MMMM DD, YYYY")
+              year
+              description
+              projectUrl
+              repositoryUrl
+              type
+              featuredImage {
+                childImageSharp {
+                  fluid(quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const projectPosts = data.allMarkdownRemark.edges
 
   return (
     <Container id="projects" Background={Background}>
       <Header name="Projects" icon="💻" label="notebook"  />
 
-      <CardContainer minWidth="350px">
-        <Fade bottom delay={200} key={fakeProject.id}>
-          <Project {...fakeProject} />
-        </Fade>
-        <Fade bottom delay={200} key={fakeProject.id}>
-          <Project {...fakeProject} />
-        </Fade>
-        <Fade bottom delay={200} key={fakeProject.id}>
-          <Project {...fakeProject} />
-        </Fade>
-      </CardContainer>
-
-      {/*<StaticQuery*/}
-      {/*  query={graphql`*/}
-      {/*  query ProjectsQuery {*/}
-      {/*    contentfulAbout {*/}
-      {/*      projects {*/}
-      {/*        id*/}
-      {/*        name*/}
-      {/*        description*/}
-      {/*        projectUrl*/}
-      {/*        repositoryUrl*/}
-      {/*        publishedDate(formatString: "YYYY")*/}
-      {/*        type*/}
-      {/*        logo {*/}
-      {/*          title*/}
-      {/*          image: resize(width: 200, quality: 100) {*/}
-      {/*            src*/}
-      {/*          }*/}
-      {/*        }*/}
-      {/*      }*/}
-      {/*    }*/}
-      {/*  }*/}
-      {/*`}*/}
-      {/*  render={({ contentfulAbout }) => (*/}
-      {/*    <CardContainer minWidth="350px">*/}
-      {/*      {contentfulAbout.projects.map((p, i) => (*/}
-      {/*        <Fade bottom delay={i * 200} key={p.id}>*/}
-      {/*          <Project {...p} />*/}
-      {/*        </Fade>*/}
-      {/*      ))}*/}
-      {/*    </CardContainer>*/}
-      {/*  )}*/}
-      {/*/>*/}
+        {projectPosts.map(({ node }) => {
+          const {
+            id,
+            fields: {
+              slug
+            },
+            frontmatter: {
+              title,
+              date,
+              year,
+              description,
+              projectUrl,
+              repositoryUrl,
+              type,
+              featuredImage: {
+                childImageSharp: {
+                  fluid
+                }
+              }
+            }
+          } = node;
+          const meta = {
+            title,
+            description,
+            projectUrl,
+            repositoryUrl,
+            type,
+            year,
+            fluid,
+            slug
+          };
+          return (
+            <Fade bottom delay={200} key={`project_${id}`}>
+                <Project {...meta} />
+            </Fade>
+          )
+        })}
     </Container>
   )
 }

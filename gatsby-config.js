@@ -2,10 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `Ruaraí Kirk`,
     author: `Ruaraí Kirk`,
-    description: `Professional portfolio site powered by Gatsby and Markdown.`,
+    description: `who lives and works in Dublin building useful stuff.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
-      twitter: `kylemathews`,
+      linkedin: `ruaraikirk`,
     },
   },
   plugins: [
@@ -28,6 +28,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: `technologies`,
       },
     },
     {

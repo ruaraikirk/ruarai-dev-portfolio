@@ -1,12 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Flex } from 'rebass/styled-components';
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import { Triangle } from '../components/Triangle'
 import Section from '../components/Section'
-import { Flex } from "rebass/styled-components"
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
-
 
 
 const { Container } = Section;
@@ -42,7 +41,7 @@ const Background = () => (
   </div>
 );
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -105,10 +104,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default ProjectPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query ProjectPostBySlug($slug: String!) {
     site {
       siteMetadata {
         title

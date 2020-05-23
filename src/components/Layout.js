@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from 'gatsby'
-import { createGlobalStyle,  ThemeProvider } from 'styled-components'
+import styled, { createGlobalStyle,  ThemeProvider } from 'styled-components'
+import { Text, Flex, Box, Heading } from 'rebass/styled-components';
 import { ScrollingProvider, Section } from 'react-scroll-section'
 // import preset from '@rebass/preset'
 // import useLocalState from "../utils/useLocalState"
@@ -11,6 +12,17 @@ import HiddenBox from './HiddenBox'
 import Hero from '../sections/Hero'
 import Header from './Header'
 import Footer from "./Footer"
+import HomeIcon from "@material-ui/icons/Home"
+import Headroom from "react-headroom"
+
+const HeaderContainer = styled(Headroom)`
+  .headroom--pinned {
+    background-color: ${(props) => props.theme.colors.backgroundDark}f2;
+  }
+  position: absolute;
+  width: 100%;
+  color: ${(props) => props.theme.colors.text};
+`;
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -18,35 +30,41 @@ const Layout = ({ location, title, children }) => {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
-  if (location.pathname === rootPath) {
+  if (location.pathname !== rootPath) {
     header = (
-      <h1>
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3>
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
+      <HeaderContainer>
+          <Flex
+            justifyContent="flex-end"
+          >
+            <Box
+              px={[2, 1]}
+              py={[4, 2]}
+              sx={{
+                color: 'text', // theme.colors.primary
+              }}
+            >
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              <Flex
+                justifyItems="space-between"
+                alignItems="center"
+                mr={4}
+              >
+                <HomeIcon fontSize="large" />
+                <h3>
+                  &nbsp;{title}
+                </h3>
+              </Flex>
+            </Link>
+            </Box>
+          </Flex>
+      </HeaderContainer>
     )
   }
 
