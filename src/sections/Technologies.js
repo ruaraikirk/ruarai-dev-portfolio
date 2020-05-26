@@ -2,16 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Image from "gatsby-image"
-import { Chip, Avatar } from "@material-ui/core"
 import Section from '../components/Section'
 import { Triangle } from '../components/Triangle'
 import styled from "styled-components"
-// import { Box, Flex, Image, Text } from "rebass/styled-components"
 import { Box, Flex, Text } from "rebass/styled-components"
 import { Card, CardContainer } from "../components/Card"
-import SocialLink from "../components/SocialLink"
 import ImageSubtitle from "../components/ImageSubtitle"
-import Hide from "../components/Hide"
 import Fade from "react-reveal/Fade"
 
 const { Container, Header } = Section;
@@ -20,21 +16,21 @@ const Background = () => (
   <div>
     <Triangle
       color="primaryLight"
-      height={['80vh', '80vh']}
+      height={['20vh', '30vh']}
       width={['100vw', '100vw']}
       invertX
     />
 
     <Triangle
       color="secondary"
-      height={['50vh', '20vh']}
+      height={['20vh', '8vh']}
       width={['50vw', '50vw']}
       invertX
     />
 
     <Triangle
       color="primaryDark"
-      height={['25vh', '40vh']}
+      height={['10vh', '16vh']}
       width={['75vw', '60vw']}
       invertX
       invertY
@@ -161,23 +157,6 @@ const Technologies = () => {
   return (
     <Container id="technologies" Background={Background}>
       <Header name="Technologies" icon="🛠" label="tools"  />
-      {/*<div style={{ display: 'flex', justifyContent: 'center' }}>*/}
-      {/*  <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap'}}>*/}
-      {/*    {technologies.map(technology => {*/}
-      {/*      const { node: {frontmatter: { title, stack, website, featuredImage: { childImageSharp: { fluid } } } } } = technology;*/}
-      {/*      return (*/}
-      {/*        <Fade bottom delay={200} key={`tech_${title}`}>*/}
-      {/*          <Technology*/}
-      {/*            name={title}*/}
-      {/*            website={website}*/}
-      {/*            stack={stack}*/}
-      {/*            featuredImage={fluid}*/}
-      {/*          />*/}
-      {/*        </Fade>*/}
-      {/*      )*/}
-      {/*    })}*/}
-      {/*  </div>*/}
-      {/*</div>*/}
       <Flex flexWrap='wrap' alignSelf='center' maxWidth={[300, 790]} mx={-2}>
         {technologies.map(technology => {
           const { node: {frontmatter: { title, stack, website, featuredImage: { childImageSharp: { fluid } } } } } = technology;

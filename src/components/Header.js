@@ -162,15 +162,15 @@ const Header = (props) => {
               return (
                 <Fragment>
                   <Box m={[1, 2, 3, 4]}>
-                  {homeLink}
+                    {homeLink}
                   </Box>
                   <Box m={[1, 2, 3, 4]}>
-                  <StyledIcon>
-                    <Hamburger
-                      toggled={isOpen}
-                      toggle={setOpen}
-                    />
-                  </StyledIcon>
+                    <StyledIcon>
+                      <Hamburger
+                        toggled={isOpen}
+                        toggle={setOpen}
+                      />
+                    </StyledIcon>
                   </Box>
                   <StyledMenu open={isOpen}>
                     {navLinks}

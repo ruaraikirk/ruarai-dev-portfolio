@@ -13,7 +13,6 @@ import Section from '../components/Section'
 import { Triangle } from '../components/Triangle'
 import { Fade } from "react-reveal"
 import styled from "styled-components"
-import { Card } from "../components/Card"
 
 const { Container, Header } = Section;
 
@@ -21,21 +20,21 @@ const Background = () => (
   <div>
     <Triangle
       color="primaryLight"
-      height={['50vh', '20vh']}
+      height={['20vh', '8vh']}
       width={['50vw', '50vw']}
       invertY
     />
 
     <Triangle
       color="primaryDark"
-      height={['20vh', '40vh']}
+      height={['10vh', '20vh']}
       width={['75vw', '70vw']}
       invertX
     />
 
     <Triangle
       color="primary"
-      height={['25vh', '20vh']}
+      height={['10vh', '8vh']}
       width={['100vw', '100vw']}
     />
   </div>
@@ -43,6 +42,34 @@ const Background = () => (
 
 const StyledPara = styled.p`
   color: ${(props) => props.theme.colors.text};
+`;
+
+const StyledUnorderedList = styled.ul`
+  margin: 0;
+`;
+
+const StyledListItem = styled.li`
+  margin: 1em 0px;
+  line-height: 2em;
+`;
+
+const StyledAnchor = styled.span`
+  display: inline-block;
+  transition: color 250ms ease 0s, text-shadow 250ms ease 0s;
+  position: relative;
+  text-decoration: none;
+  &:after {
+    position: absolute;
+    z-index: -1;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: ${(props) => props.theme.colors.secondary};
+    transition: all 250ms ease 0s;
+  }
 `;
 
 const Bio = () => {
@@ -58,41 +85,55 @@ const Bio = () => {
       site {
         siteMetadata {
           author
+          description
           social {
-            twitter
+            linkedin
           }
         }
       }
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author, description, social } = data.site.siteMetadata
   return (
     <Container id="bio" Background={Background}>
       <Header name="About me" icon="🙋‍️" label="person" />
       <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-        <Box width={[1, 2/3, 1/2]} px={[1, 2, 4]}>
+        <Box width={[1, 2/3, 2/3]} px={[1, 2, 4]}>
           <Fade bottom>
             <StyledPara>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Portfolio site by <strong>{author}</strong> {description}
+              {` `}
+              <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
+                You should add him on LinkedIn!
+              </a>
 
-              Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit,
-              nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula.
-              Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien
-              risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec,
-              commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam
-              lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et,
-              pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci. In hac habitasse platea dictumst.
+              <StyledUnorderedList>
+                <StyledListItem>
+                  <StyledAnchor>Technologies:</StyledAnchor> Displays some of the technologies and libraries that Ruarai is familiar with.
+                </StyledListItem>
+                <StyledListItem>
+                  <StyledAnchor>Projects:</StyledAnchor>  Contains links to some of the personal and professional projects he has worked on.
+                </StyledListItem>
+                <StyledListItem>
+                  <StyledAnchor>Opensource:</StyledAnchor> This section outlines some of the opensource projects Ruarai has contributed to.
+                </StyledListItem>
+                <StyledListItem>
+                  <StyledAnchor>Experience:</StyledAnchor> A timeline of his academic and professional experience.
+                </StyledListItem>
+                <StyledListItem>
+                  <StyledAnchor>Blog:</StyledAnchor> An archive of writing attempts 🙈.
+                </StyledListItem>
+              </StyledUnorderedList>
+
+              This site is built with Gatsby, Rebass (styled-component system) and Netlify, as well as some other nice tools. (Psst...check out dark mode!)
             </StyledPara>
           </Fade>
         </Box>
         <Fade right>
           <Box
-            width={[1, 2/3, 1/2]}
-            style={{ maxWidth: '270px', margin: 'auto' }}
+            width={[1, 2/3, 1/3]}
+            style={{ maxWidth: '270px' }}
           >
             <Fade right>
               <Image
