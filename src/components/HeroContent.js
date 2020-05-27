@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Icon } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -7,6 +7,11 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import styled, { keyframes }  from 'styled-components';
 import { Box, Flex } from "rebass/styled-components"
 import Fade from "react-reveal/Fade"
+import { IconContext } from "react-icons";
+import { GrGithub } from "react-icons/gr";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+import { ThemeContext } from "../context/ThemeContext"
 
 const TypewriterTextLarge = keyframes`
    from{width: 0;}
@@ -45,11 +50,14 @@ const Typewriter = styled.div`
 
 const StyledIcon = styled(Icon)`
   cursor: pointer;
-  color: ${(props) => props.theme.colors.text};
+  // color: ${(props) => props.theme.colors.text};
 `;
 
 const HeroContent = () => {
+  const [theme] = useContext(ThemeContext);
+  const iconColor = theme === 'light' ? '#000000' : '#FFFFFF';
   return (
+    <IconContext.Provider value={{ color: iconColor, size: '2.5rem' }}>
     <Flex alignSelf='center' flexDirection='column' width={[300, 410]} mx={-2}>
       <Box width={1}>
         <Typewriter>Hello World! I'm Ruaraí.</Typewriter>
@@ -58,27 +66,28 @@ const HeroContent = () => {
         <Fade right>
           <Box key="header_github">
             <StyledIcon>
-              <GitHubIcon fontSize="large" onClick={() => window.open('https://github.com/ruaraikirk')}/>
+              <GrGithub onClick={() => window.open('https://github.com/ruaraikirk')}/>
             </StyledIcon>
           </Box>
           <Box key="header_linkedin">
             <StyledIcon>
-              <LinkedInIcon fontSize="large" onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
+              <FaLinkedin onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
             </StyledIcon>
           </Box>
           <Box key="header_mail">
             <StyledIcon>
-              <MailOutlineIcon fontSize="large" onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
+              <FiMail fontSize="large" onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
             </StyledIcon>
           </Box>
           <Box key="header_instagram">
             <StyledIcon>
-              <InstagramIcon fontSize="large" onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
+              <FaInstagram onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
             </StyledIcon>
           </Box>
         </Fade>
       </Flex>
     </Flex>
+    </IconContext.Provider>
   )
 }
 

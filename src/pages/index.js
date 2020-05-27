@@ -8,6 +8,7 @@ import Projects from "../sections/Projects"
 import Opensource from "../sections/Opensource"
 import Experience from "../sections/Experience"
 import Technologies from "../sections/Technologies"
+// import { ThemeProvider } from "../context/ThemeContext"
 
 const IndexPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title

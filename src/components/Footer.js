@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from "react"
 import styled from 'styled-components';
 import { graphql, useStaticQuery } from "gatsby"
 import { Text, Box, Link, Flex } from 'rebass/styled-components';
@@ -8,6 +8,11 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import { IconContext } from "react-icons";
+import { GrGithub } from "react-icons/gr";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
+import { ThemeContext } from "../context/ThemeContext"
 
 const FooterContainer = styled.div`
   max-width: 1366px;
@@ -52,7 +57,10 @@ const Footer = () => {
   `);
 
   const { author } = data.site.siteMetadata
+  const [theme] = useContext(ThemeContext);
+  const iconColor = theme === 'light' ? '#000000' : '#FFFFFF';
   return (
+    <IconContext.Provider value={{ color: iconColor, size: '2.5rem' }}>
     <Box p={[2, 3]} backgroundColor="primaryDark" as="footer">
       <FooterContainer>
         <Fade left>
@@ -70,28 +78,29 @@ const Footer = () => {
           <Fade right>
             <Box mx={[2, 3]} fontSize={[4, 5]} key="footer_github">
               <StyledIcon>
-                <GitHubIcon fontSize="large" onClick={() => window.open('https://github.com/ruaraikirk')}/>
+                <GrGithub onClick={() => window.open('https://github.com/ruaraikirk')}/>
               </StyledIcon>
             </Box>
             <Box mx={[2, 3]} fontSize={[4, 5]} key="footer_linkedin">
               <StyledIcon>
-                <LinkedInIcon fontSize="large" onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
+                <FaLinkedin onClick={() => window.open('https://linkedin.com/in/ruaraikirk')}/>
               </StyledIcon>
             </Box>
             <Box mx={[2, 3]} fontSize={[4, 5]} key="footer_mail">
               <StyledIcon>
-                <MailOutlineIcon fontSize="large" onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
+                <FiMail onClick={() => window.open('mailto: ruaraikirk@gmail.com')}/>
               </StyledIcon>
             </Box>
             <Box mx={[2, 3]} fontSize={[4, 5]} key="footer_instagram">
               <StyledIcon>
-                <InstagramIcon fontSize="large" onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
+                <FaInstagram onClick={() => window.open('https://www.instagram.com/ruaraikirk/?hl=en')}/>
               </StyledIcon>
             </Box>
           </Fade>
         </Flex>
       </FooterContainer>
     </Box>
+    </IconContext.Provider>
   );
 };
 

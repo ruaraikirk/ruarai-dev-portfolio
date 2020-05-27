@@ -8,6 +8,8 @@ import RouteLink from './RouteLink';
 import { Squash as Hamburger } from 'hamburger-react'
 import { graphql, useStaticQuery } from "gatsby"
 import HomeIcon from '@material-ui/icons/Home';
+import { MdHome } from 'react-icons/md';
+import { IconContext } from "react-icons";
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
 import { Icon, Switch } from "@material-ui/core"
@@ -39,7 +41,7 @@ const StyledMenu = styled.nav`
 
   @media (max-width: 576px) {
       width: 100%;
-    }
+  }
 
   a {
     font-size: 2rem;
@@ -139,10 +141,12 @@ const Header = (props) => {
 
               const homeLink = home && (
                 <StyledIcon>
-                  <HomeIcon fontSize="large" onClick={() => {
-                    setOpen(false);
-                    home.onClick();
-                  }}/>
+                  <IconContext.Provider value={{ size: "2.5rem" }}>
+                    <MdHome fontSize="large" onClick={() => {
+                      setOpen(false);
+                      home.onClick();
+                    }}/>
+                  </IconContext.Provider>
                 </StyledIcon>
               );
               const navLinks = links.map(({ name, value }) => (

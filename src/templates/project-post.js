@@ -5,7 +5,6 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import { Triangle } from '../components/Triangle'
 import Section from '../components/Section'
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 
 
 const { Container } = Section;
@@ -57,7 +56,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
           <Flex
             flexDirection="column"
             justifyContent="center"
-            mx={[2, 6]}
+            mx={[2, 7]}
             mt={[5, 2]}
           >
             <header>
@@ -93,7 +92,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} <DoubleArrowIcon fontSize="large" />
+                  {next.frontmatter.title} →
                 </Link>
               )}
             </li>
