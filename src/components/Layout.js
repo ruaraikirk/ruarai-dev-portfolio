@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from 'gatsby'
 import styled, { createGlobalStyle,  ThemeProvider } from 'styled-components'
 import { Text, Flex, Box, Heading } from 'rebass/styled-components';
@@ -14,6 +14,9 @@ import Header from './Header'
 import Footer from "./Footer"
 import HomeIcon from "@material-ui/icons/Home"
 import Headroom from "react-headroom"
+import { ThemeContext } from "../context/ThemeContext"
+import { MdHome } from 'react-icons/md';
+import { IconContext } from "react-icons";
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
@@ -27,44 +30,47 @@ const HeaderContainer = styled(Headroom)`
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
-  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const [theme, themeToggler, mountedComponent] = useContext(ThemeContext);
+  // const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   if (location.pathname !== rootPath) {
     header = (
-      <HeaderContainer>
-          <Flex
-            justifyContent="flex-end"
-          >
-            <Box
-              px={[2, 1]}
-              py={[4, 2]}
-              sx={{
-                color: 'text', // theme.colors.primary
-              }}
+      <IconContext.Provider value={{ size: "2.5rem" }}>
+        <HeaderContainer>
+            <Flex
+              justifyContent="flex-end"
             >
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `inherit`,
-              }}
-              to={`/`}
-            >
-              <Flex
-                justifyItems="space-between"
-                alignItems="center"
-                mr={4}
+              <Box
+                px={[2, 1]}
+                py={[4, 2]}
+                sx={{
+                  color: 'text', // theme.colors.primary
+                }}
               >
-                <HomeIcon fontSize="large" />
-                <h3>
-                  &nbsp;{title}
-                </h3>
-              </Flex>
-            </Link>
-            </Box>
-          </Flex>
-      </HeaderContainer>
+              <Link
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                to={`/`}
+              >
+                <Flex
+                  justifyItems="space-between"
+                  alignItems="center"
+                  mr={4}
+                >
+                  <MdHome />
+                  <h3>
+                    &nbsp;{title}
+                  </h3>
+                </Flex>
+              </Link>
+              </Box>
+            </Flex>
+        </HeaderContainer>
+      </IconContext.Provider>
     )
   }
 

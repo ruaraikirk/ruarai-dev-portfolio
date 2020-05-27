@@ -5,7 +5,6 @@ import SEO from "../components/Seo"
 import { Triangle } from '../components/Triangle'
 import Section from '../components/Section'
 import { Flex } from "rebass/styled-components"
-import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 
 
 
@@ -94,7 +93,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} <DoubleArrowIcon fontSize="large" />
+                  {next.frontmatter.title} →
                 </Link>
               )}
             </li>
