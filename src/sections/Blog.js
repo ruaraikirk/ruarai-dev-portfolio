@@ -70,7 +70,7 @@ const Post = ({ title, description, date }) => (
     <Text m={3} color="text">
       {description}
     </Text>
-    <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
+    <ImageSubtitle bg="primary" color="text" x="right" y="bottom" round>
       {`${date} - ${Math.ceil(3)} min`}
     </ImageSubtitle>
   </BlogCard>

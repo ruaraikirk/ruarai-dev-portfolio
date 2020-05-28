@@ -5,6 +5,8 @@ import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import { Triangle } from '../components/Triangle'
 import Section from '../components/Section'
+import styled from "styled-components"
+import { Icon } from "@material-ui/core"
 
 
 const { Container } = Section;
@@ -31,7 +33,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="primaryDark"
       height={['20vh', '10vh']}
       width={['100vw', '100vw']}
       invertX
@@ -39,6 +41,24 @@ const Background = () => (
     />
   </div>
 );
+
+const StyledArticle = styled.section`
+  color: ${(props) => props.theme.colors.text};
+  text-align: justify;
+  img {
+    display:block;
+    margin:auto;
+  }
+`;
+
+const StyledSection = styled.section`
+  // color: ${(props) => props.theme.colors.text};
+  text-align: justify;
+  img {
+    display:block;
+    margin:auto;
+  }
+`;
 
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -52,7 +72,7 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <Container id={siteTitle} Background={Background}>
-        <article>
+        <StyledArticle>
           <Flex
             flexDirection="column"
             justifyContent="center"
@@ -67,10 +87,10 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
                 {post.frontmatter.date}
               </p>
             </header>
-            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <StyledSection dangerouslySetInnerHTML={{ __html: post.html }} />
           </Flex>
           <hr />
-        </article>
+        </StyledArticle>
 
         <nav>
           <ul

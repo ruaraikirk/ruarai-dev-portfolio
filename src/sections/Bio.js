@@ -97,7 +97,7 @@ const Bio = () => {
   const { author, description, social } = data.site.siteMetadata
   return (
     <Container id="bio" Background={Background}>
-      <Header name="About me" icon="🙋‍️" label="person" />
+      <Header name="About" icon="🙋‍️" label="person" />
       <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
         <Box width={[1, 2/3, 2/3]} px={[1, 2, 4]}>
           <Fade bottom>
@@ -126,7 +126,8 @@ const Bio = () => {
                 </StyledListItem>
               </StyledUnorderedList>
 
-              This site is built with Gatsby, Rebass (styled-component system) and Netlify, as well as some other nice tools. (Psst...check out dark mode!)
+              This site is powered by React, Gatsby, Rebass (styled-component system) and Netlify, as well as some other nice tools.
+              You can check out the repo <a href={`https://github.com/ruaraikirk/ruarai-dev-portfolio`}>here</a>. (Psst...and check out dark mode!)
             </StyledPara>
           </Fade>
         </Box>
