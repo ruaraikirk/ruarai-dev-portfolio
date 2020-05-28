@@ -5,6 +5,7 @@ import SEO from "../components/Seo"
 import { Triangle } from '../components/Triangle'
 import Section from '../components/Section'
 import { Flex } from "rebass/styled-components"
+import styled from "styled-components"
 
 
 
@@ -32,7 +33,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="backgroundDark"
+      color="primaryDark"
       height={['20vh', '10vh']}
       width={['100vw', '100vw']}
       invertX
@@ -40,6 +41,24 @@ const Background = () => (
     />
   </div>
 );
+
+const StyledArticle = styled.section`
+  color: ${(props) => props.theme.colors.text};
+  text-align: justify;
+  img {
+    display:block;
+    margin:auto;
+  }
+`;
+
+const StyledSection = styled.section`
+  // color: ${(props) => props.theme.colors.text};
+  text-align: justify;
+  img {
+    display:block;
+    margin:auto;
+  }
+`;
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -53,7 +72,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <Container id={siteTitle} Background={Background}>
-        <article>
+        <StyledArticle>
           <Flex
             flexDirection="column"
             justifyContent="center"
@@ -68,10 +87,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 {post.frontmatter.date}
               </p>
             </header>
-            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <StyledSection dangerouslySetInnerHTML={{ __html: post.html }} />
           </Flex>
           <hr />
-        </article>
+        </StyledArticle>
 
         <nav>
           <ul

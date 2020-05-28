@@ -33,7 +33,7 @@ const StyledMenu = styled.nav`
   transform: ${({ open }) => open ? 'translateX(0%)' : 'translateX(100%)'};
   height: 120vh;
   text-align: left;
-  padding: 6rem 2rem 10rem;
+  padding: 6rem 2rem 12rem;
   position: absolute;
   top: 0;
   right: 0;

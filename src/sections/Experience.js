@@ -135,11 +135,14 @@ const Experience = () => {
           <h3 className="vertical-timeline-element-title">Software Developer</h3>
           <h4 className="vertical-timeline-element-subtitle">Dublin, Ireland</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            eleifend consectetur dolor venenatis porttitor. Proin tortor odio,
-            hendrerit in leo et, blandit pharetra nibh. Pellentesque pulvinar,
-            arcu in pharetra aliquam, dolor enim laoreet quam, et tincidunt nibh
-            nulla quis dui.
+            Currently working as a Front-End Developer on Continuous Software’s flagship product for use in
+            project management, aangine™, developed specifically for the management of project portfolios.
+            Working within an Agile development environment utilising JavaScript based technologies
+            including JavaScript (React, Redux, Node, NPM) as well as leveraging industry standard tools such
+            as WebStorm, GitLab, Jira, Jenkins and Docker to name but a few. Ruarai also worked on a performance
+            testing and application optimisation project carried out with the Saudi Commission for Tourism and National Heritage
+            (SCTH), as part of their major development of a new eVisa platform, where tourist visa applications
+            would be streamlined globally for the Kingdom.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -162,11 +165,12 @@ const Experience = () => {
           <h3 className="vertical-timeline-element-title">Software Developer</h3>
           <h4 className="vertical-timeline-element-subtitle">Dublin, Ireland</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            eleifend consectetur dolor venenatis porttitor. Proin tortor odio,
-            hendrerit in leo et, blandit pharetra nibh. Pellentesque pulvinar,
-            arcu in pharetra aliquam, dolor enim laoreet quam, et tincidunt nibh
-            nulla quis dui.
+            Previously worked in the Dublin UX Team developing user friendly and intuitive JavaScript based
+            web applications, as well as VS Code extensions for use by other SAP teams. Working within an Agile
+            development environment leveraging industry standard tools and collaborating with a diverse team of
+            developers, designers, test, DevOps and product owners. From the first day involved in projects, for
+            example the development of a web application for the storage of documentation with tools including React,
+            Redux, GatsbyJS, Netlify and Sass.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -216,11 +220,15 @@ const Experience = () => {
           <h3 className="vertical-timeline-element-title">Consultant Engineer (Software & Electronics)</h3>
           <h4 className="vertical-timeline-element-subtitle">Dublin, Ireland</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            eleifend consectetur dolor venenatis porttitor. Proin tortor odio,
-            hendrerit in leo et, blandit pharetra nibh. Pellentesque pulvinar,
-            arcu in pharetra aliquam, dolor enim laoreet quam, et tincidunt nibh
-            nulla quis dui.
+            Ruarai spent two years in the interesting field of the Research and Development ('R&D') tax credit and
+            relief scheme in Ireland. The R&D tax credit is a unique area of tax that requires understanding of science,
+            technology, accounting, and taxation. The R&D tax credit is an incentive to encourage
+            companies to carry out R&D activities and to attract multinationals to invest in Research,
+            Development and Innovation ('R&D&I'). Ruarai’s technical knowledge coupled with his willingness to diversify,
+            provided the opportunity to work with, and be specifically trained by, expert professionals in the area of
+            the R&D tax credit. He provided advisory to primarily software clients as well as other industry sectors, such as
+            manufacturing and electronic engineering. Worked with clients from multinational PLCs, LC, SMEs
+            and start-up companies in Ireland.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
@@ -243,11 +251,15 @@ const Experience = () => {
           <h3 className="vertical-timeline-element-title">Process Engineer</h3>
           <h4 className="vertical-timeline-element-subtitle">Leixlip, Ireland</h4>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            eleifend consectetur dolor venenatis porttitor. Proin tortor odio,
-            hendrerit in leo et, blandit pharetra nibh. Pellentesque pulvinar,
-            arcu in pharetra aliquam, dolor enim laoreet quam, et tincidunt nibh
-            nulla quis dui.
+            Ruarai's primary focus revolved around equipment troubleshooting and sustaining ownership of day-today
+            operations with a focus on delivering best-in-class results for tool availability, cycle time,
+            defect and parametric performance within a 24-hour manufacturing environment. Applying the concepts of
+            Lean and Six Sigma was a key aspect to the role managing various projects, for example the ‘SAFIER
+            Reduction Project’, which reduced chemical usage within the equipment toolset by 66%. Ruarai also managed a
+            team of eight technicians, as well as being point of escalation for engineering issues
+            and providing hands-on technical support, with a focus on safety, people, quality, velocity and
+            cost. Critical to this role was using tools such as SPC and SQL to make informed and data driven
+            decisions and present technical reports.
           </p>
         </VerticalTimelineElement>
         <VerticalTimelineElement
