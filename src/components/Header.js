@@ -27,6 +27,7 @@ const HeaderContainer = styled(Headroom)`
 const StyledMenu = styled.nav`
   z-index: -1;
   display: flex;
+  // display: ${({ open }) => open ? 'flex' : 'none'};
   flex-direction: column;
   justify-content: space-around;
   background: ${(props) => props.theme.colors.backgroundDark}f2;
