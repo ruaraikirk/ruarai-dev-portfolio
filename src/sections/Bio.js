@@ -102,30 +102,15 @@ const Bio = () => {
         <Box width={[1, 2/3, 2/3]} px={[1, 2, 4]}>
           <Fade bottom>
             <StyledPara>
-              Portfolio site by <strong>{author}</strong> {description}
+              Hi, I'm <strong>{author}</strong>. {description}
               {` `}
               <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
-                You should add him on LinkedIn!
+                You should add me on LinkedIn!
               </a>
-
-              <StyledUnorderedList>
-                <StyledListItem>
-                  <StyledAnchor>Technologies:</StyledAnchor> Displays some of the technologies and libraries that Ruarai is familiar with.
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledAnchor>Projects:</StyledAnchor>  Contains links to some of the personal and professional projects he has worked on.
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledAnchor>Opensource:</StyledAnchor> This section outlines some of the opensource projects Ruarai has contributed to.
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledAnchor>Experience:</StyledAnchor> A timeline of his academic and professional experience.
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledAnchor>Blog:</StyledAnchor> An archive of writing attempts 🙈.
-                </StyledListItem>
-              </StyledUnorderedList>
-
+            </StyledPara>
+          </Fade>
+          <Fade bottom delay={200}>
+            <StyledPara>
               This site is powered by React, Gatsby, Rebass (styled-component system) and Netlify, as well as some other nice tools.
               You can check out the repo <a href={`https://github.com/ruaraikirk/ruarai-dev-portfolio`}>here</a>. (Psst...and check out dark mode!)
             </StyledPara>

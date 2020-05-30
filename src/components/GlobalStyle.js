@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
   *::before { 
     box-sizing: inherit;
     }
+  html, body {
+  overflow-x: hidden;
+  }
   body {
     background: ${({ theme }) => theme.backgroundColor};
     box-sizing: border-box; 
@@ -13,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Cabin, 'Open Sans', sans-serif;
     font-display: swap;
     font-display: fallback;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    position: relative;
   }
 `;

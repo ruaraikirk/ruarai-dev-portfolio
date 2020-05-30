@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Ruaraí Kirk`,
     author: `Ruaraí Kirk`,
-    description: `who lives and works in Dublin building useful stuff.`,
+    description: `I research, design and build valuable software products 
+     to empower users and increase business growth.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
       linkedin: `ruaraikirk`,

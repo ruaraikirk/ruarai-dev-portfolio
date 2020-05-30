@@ -34,13 +34,15 @@ const Background = () => (
 
     <Triangle
       color="primaryDark"
-      height={['20vh', '10vh']}
+      height={['10vh', '5vh']}
       width={['100vw', '100vw']}
       invertX
       invertY
     />
   </div>
 );
+
+const MEDIA_QUERY_SMALL = '@media (max-width: 450px)';
 
 const StyledArticle = styled.section`
   color: ${(props) => props.theme.colors.text};
@@ -55,8 +57,13 @@ const StyledSection = styled.section`
   // color: ${(props) => props.theme.colors.text};
   text-align: justify;
   img {
-    display:block;
-    margin:auto;
+    display: block;
+    margin: auto;
+  }
+  ${MEDIA_QUERY_SMALL} {
+    img {
+      max-width: 300px
+    }
   }
 `;
 

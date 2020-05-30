@@ -148,7 +148,7 @@ const OpensourceProject = ({ name, description, projectYear, repositoryUrl, proj
             {type}
           </ImageSubtitle>
           <Hide query={MEDIA_QUERY_SMALL}>
-            <ImageSubtitle bg="secondary" color="text" round>{projectYear}</ImageSubtitle>
+            <ImageSubtitle bg="secondary" color="white" round>{projectYear}</ImageSubtitle>
           </Hide>
         </ProjectTag>
       </ImageContainer>

@@ -12,7 +12,9 @@ import { IconContext } from "react-icons";
 import { GrGithub } from "react-icons/gr";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import { ThemeContext } from "../context/ThemeContext"
+import { ThemeContext } from "../context/ThemeContext";
+
+const MEDIA_QUERY_SMALL = '@media (max-width: 450px)';
 
 const FooterContainer = styled.div`
   max-width: 1366px;
@@ -21,7 +23,7 @@ const FooterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  @media (max-width: 400px) {
+  ${MEDIA_QUERY_SMALL} {
     flex-direction: column-reverse;
     & > * {
       margin-bottom: 10px;
@@ -65,7 +67,9 @@ const Footer = () => {
       <FooterContainer>
         <Fade left>
           <TextFooter fontSize={[2, 3]}>
-            <span>{`${author} Portfolio © ${new Date().getFullYear()} - Powered by `}</span>
+            <span>{`${author}'s Portfolio © ${new Date().getFullYear()} - Powered by `}</span>
+            <Link href="https://reactjs.org/">React,</Link>
+            &nbsp;
             <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
             <span> and </span>
             <Link href="https://www.netlify.com/" mr={1}>
