@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { Heading, Text, Flex, Box } from 'rebass/styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { Heading, Text, Flex } from 'rebass/styled-components';
 import Fade from 'react-reveal/Fade';
 import styled from 'styled-components';
 import { CardContainer, Card } from '../components/Card';
 import ImageSubtitle from '../components/ImageSubtitle';
-import Section from '../components/Section'
-import { Triangle } from "../components/Triangle"
+import Section from '../components/Section';
+import { Triangle } from '../components/Triangle';
 
 const { Container, Header } = Section;
 
@@ -21,7 +21,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="primary"
+      color="primaryLight"
       height={['30vh', '15vh']}
       width={['70vw', '40vw']}
       invertX
@@ -29,7 +29,7 @@ const Background = () => (
     />
 
     <Triangle
-      color="primaryDark"
+      color="primary"
       height={['15vh', '5vh']}
       width={['100vw', '100vw']}
       invertY
@@ -120,14 +120,14 @@ const Blog = () => {
     <Container id="blog" Background={Background}>
       <Header name="Blog" icon="📝" label="memo"  />
       <CardContainer minWidth="350px">
-      {posts.map(({ node }) => {
+        {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           const description = node.frontmatter.description || node.excerpt;
           const date = node.frontmatter.date;
           const meta = {title, description, date};
           return (
             <Fade bottom key={node.fields.slug}>
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+              <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
                 <Post {...meta} key={node.fields.slug} />
               </Link>
             </Fade>

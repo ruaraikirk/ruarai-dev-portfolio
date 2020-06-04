@@ -1,24 +1,22 @@
 import React, { Fragment, useState } from 'react';
 import Headroom from 'react-headroom';
-import { Flex, Box } from "rebass/styled-components"
+import { Flex, Box } from 'rebass/styled-components';
 import styled from 'styled-components';
 import { SectionLinks } from 'react-scroll-section';
 import { Fade } from 'react-reveal';
 import RouteLink from './RouteLink';
-import { Squash as Hamburger } from 'hamburger-react'
-import { graphql, useStaticQuery } from "gatsby"
-import HomeIcon from '@material-ui/icons/Home';
+import { Squash as Hamburger } from 'hamburger-react';
 import { MdHome } from 'react-icons/md';
-import { IconContext } from "react-icons";
+import { IconContext } from 'react-icons';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import NightsStayIcon from '@material-ui/icons/NightsStay';
-import { Icon, Switch } from "@material-ui/core"
+import { Icon, Switch } from '@material-ui/core';
 
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
-    background-color: ${(props) => props.theme.colors.backgroundDark}f2;
+    background-color: ${(props) => props.theme.colors.primary}f2;
   }
   position: absolute;
   width: 100%;
@@ -71,16 +69,15 @@ const StyledIcon = styled(Icon)`
 `;
 
 const DarkModeToggle = ({ checked, toggleTheme }) => {
-
   return (
-    <Flex justifyContent='space-around'>
+    <Flex justifyContent="space-around">
       <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
       <Switch
-        checked={checked === 'dark'}
+        checked={checked === "dark"}
         onChange={toggleTheme}
         color="default"
         name="checkedB"
-        inputProps={{ 'aria-label': 'primary checkbox' }}
+        inputProps={{ "aria-label": "primary checkbox" }}
       />
       <StyledIcon><NightsStayIcon fontSize="medium" /></StyledIcon>
     </Flex>
@@ -90,7 +87,7 @@ const DarkModeToggle = ({ checked, toggleTheme }) => {
 const formatLinks = allLinks =>
   Object.entries(allLinks).reduce(
     (acc, [key, value]) => {
-      const isHome = key === 'home';
+      const isHome = key === "home";
       return isHome
         ? {
           ...acc,
@@ -106,23 +103,6 @@ const formatLinks = allLinks =>
 
 const Header = (props) => {
   const [isOpen, setOpen] = useState(false)
-  const data = useStaticQuery(graphql`
-    query {
-      avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author
-        }
-      }
-    }
-  `)
-  const { author } = data.site.siteMetadata
 
   return (
     <HeaderContainer>

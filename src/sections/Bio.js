@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image';
 import { Box, Flex } from 'rebass/styled-components';
@@ -13,6 +13,9 @@ import Section from '../components/Section'
 import { Triangle } from '../components/Triangle'
 import { Fade } from "react-reveal"
 import styled from "styled-components"
+import WbSunnyIcon from "@material-ui/icons/WbSunny"
+import { Icon, Switch } from "@material-ui/core"
+import NightsStayIcon from "@material-ui/icons/NightsStay"
 
 const { Container, Header } = Section;
 
@@ -40,39 +43,43 @@ const Background = () => (
   </div>
 );
 
+const StyledIcon = styled(Icon)`
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.text};
+`;
+
 const StyledPara = styled.p`
   color: ${(props) => props.theme.colors.text};
 `;
 
-const StyledUnorderedList = styled.ul`
-  margin: 0;
-`;
-
-const StyledListItem = styled.li`
-  margin: 1em 0px;
-  line-height: 2em;
-`;
-
 const StyledAnchor = styled.span`
-  display: inline-block;
-  transition: color 250ms ease 0s, text-shadow 250ms ease 0s;
-  position: relative;
-  text-decoration: none;
-  &:after {
-    position: absolute;
-    z-index: -1;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    width: 100%;
-    height: 3px;
-    background-color: ${(props) => props.theme.colors.secondary};
-    transition: all 250ms ease 0s;
+  text-decoration:none;
+  border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
+  box-shadow: inset 0 -4px 0 ${(props) => props.theme.colors.secondary}
+  color: inherit;
+  transition: background 0.1s cubic-bezier(.33,.66,.66,1);
+  &:hover {
+    background: ${(props) => props.theme.colors.secondary};
   }
 `;
 
-const Bio = () => {
+const DarkModeToggle = ({ checked, toggleTheme }) => {
+  return (
+    <Flex justifyContent="center" alignItems="center" mb={[4,0]}>
+      <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
+      <Switch
+        checked={checked === "dark"}
+        onChange={toggleTheme}
+        color="default"
+        name="checkedB"
+        inputProps={{ "aria-label": "primary checkbox" }}
+      />
+      <StyledIcon><NightsStayIcon fontSize="medium" /></StyledIcon>
+    </Flex>
+  )
+};
+
+const Bio = (props) => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
@@ -93,8 +100,8 @@ const Bio = () => {
       }
     }
   `)
+  const { author, description, social } = data.site.siteMetadata;
 
-  const { author, description, social } = data.site.siteMetadata
   return (
     <Container id="bio" Background={Background}>
       <Header name="About" icon="🙋‍️" label="person" />
@@ -104,22 +111,23 @@ const Bio = () => {
             <StyledPara>
               Hi, I'm <strong>{author}</strong>. {description}
               {` `}
-              <a href={`https://www.linkedin.com/in/${social.linkedin}`}>
+              <StyledAnchor href={`https://www.linkedin.com/in/${social.linkedin}`}>
                 You should add me on LinkedIn!
-              </a>
+              </StyledAnchor>
             </StyledPara>
           </Fade>
           <Fade bottom delay={200}>
             <StyledPara>
               This site is powered by React, Gatsby, Rebass (styled-component system) and Netlify, as well as some other nice tools.
-              You can check out the repo <a href={`https://github.com/ruaraikirk/ruarai-dev-portfolio`}>here</a>. (Psst...and check out dark mode!)
+              You can check out the repo <StyledAnchor href={`https://github.com/ruaraikirk/ruarai-dev-portfolio`}>here</StyledAnchor>. (Psst...check out dark mode toggle below!)
             </StyledPara>
+            <DarkModeToggle checked={props.checked} toggleTheme={props.toggleTheme} />
           </Fade>
         </Box>
         <Fade right>
           <Box
             width={[1, 2/3, 1/3]}
-            style={{ maxWidth: '270px' }}
+            style={{ maxWidth: "270px" }}
           >
             <Fade right>
               <Image
@@ -128,10 +136,10 @@ const Bio = () => {
                 style={{
                   marginBottom: 0,
                   minWidth: 50,
-                  borderRadius: `100%`,
+                  borderRadius: "100%",
                 }}
                 imgStyle={{
-                  borderRadius: `50%`,
+                  borderRadius: "50%",
                 }}
               />
             </Fade>

@@ -1,13 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import Section from '../components/Section'
-import { Triangle } from '../components/Triangle'
+import React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
+import Section from '../components/Section';
+import { Triangle } from '../components/Triangle';
 import { Text, Flex, Box, Heading } from 'rebass/styled-components';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-import { CardContainer, Card } from '../components/Card';
+import { Card } from '../components/Card';
 import SocialLink from '../components/SocialLink';
 import ImageSubtitle from '../components/ImageSubtitle';
 
@@ -17,32 +16,27 @@ const Background = () => (
   <div>
     <Triangle
       color="primary"
-      height={['15vh', '10vh']}
-      width={['100vw', '100vw']}
+      height={["15vh", "10vh"]}
+      width={["100vw", "100vw"]}
       invertX
     />
 
     <Triangle
       color="secondary"
-      height={['25vh', '20vh']}
-      width={['70vw', '40vw']}
+      height={["25vh", "20vh"]}
+      width={["70vw", "40vw"]}
       invertY
     />
 
     <Triangle
       color="primaryDark"
-      height={['30vh', '10vh']}
-      width={['100vw', '100vw']}
+      height={["30vh", "10vh"]}
+      width={["100vw", "100vw"]}
       invertX
       invertY
     />
   </div>
 );
-
-const CARD_HEIGHT = '200px';
-const CARD_WIDTH = '400px';
-
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -60,24 +54,8 @@ const ProjectImage = styled(Image)`
   object-fit: cover;
 `;
 
-const ProjectTag = styled.div`
-  position: relative;
-  height: ${CARD_HEIGHT};
-  top: calc(
-    -${CARD_HEIGHT} - 3.5px
-  ); /*don't know why I have to add 3.5px here ... */
-  ${MEDIA_QUERY_SMALL} {
-    top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
-  }
-`;
-
 const ProjectCard = styled(Card)`
-  // width: ${CARD_WIDTH};
   background-color: ${(props) => props.theme.colors.backgroundDark};
-  // ${MEDIA_QUERY_SMALL} {
-  //   width: calc(${CARD_WIDTH} - 50px);
-  //   padding: 10px;
-  // }
 `;
 
 const Project = ({
@@ -85,7 +63,6 @@ const Project = ({
                    description,
                    projectUrl,
                    repositoryUrl,
-                   type,
                    year,
                    fluid,
                    slug
@@ -93,7 +70,7 @@ const Project = ({
   <Flex
     flexDirection="column"
     justifyContent="space-between"
-    style={{ height: '100%' }}
+    style={{ height: "100%" }}
   >
     <ProjectCard pb={4}>
       <EllipsisHeading m={3} p={1} color="text">
@@ -101,7 +78,7 @@ const Project = ({
       </EllipsisHeading>
       <Flex
         style={{
-          float: 'right',
+          float: "right",
         }}
       >
         <Box mx={1} fontSize={5}>
@@ -134,16 +111,6 @@ const Project = ({
     </ProjectCard>
   </Flex>
 );
-
-const fakeProject = {
-  id: 1,
-  name: 'Fake Project',
-  description: 'Description',
-  repositoryUrl: 'https://material-ui.com/components/material-icons/',
-  projectUrl: 'https://material-ui.com/components/material-icons/',
-  projectYear: '2020',
-  type: 'Web'
-};
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -190,7 +157,6 @@ const Projects = () => {
   return (
     <Container id="projects" Background={Background}>
       <Header name="Projects" icon="💻" label="notebook"  />
-
         {projectPosts.map(({ node }) => {
           const {
             id,
@@ -199,12 +165,10 @@ const Projects = () => {
             },
             frontmatter: {
               title,
-              date,
               year,
               description,
               projectUrl,
               repositoryUrl,
-              type,
               featuredImage: {
                 childImageSharp: {
                   fluid
@@ -217,7 +181,6 @@ const Projects = () => {
             description,
             projectUrl,
             repositoryUrl,
-            type,
             year,
             fluid,
             slug
@@ -230,14 +193,6 @@ const Projects = () => {
         })}
     </Container>
   )
-}
-
-Projects.defaultProps = {
-
-}
-
-Projects.propTypes = {
-
 }
 
 export default Projects

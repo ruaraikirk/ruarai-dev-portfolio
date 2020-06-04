@@ -1,18 +1,14 @@
-import React, { useContext } from "react"
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from 'gatsby';
 import { Text, Box, Link, Flex } from 'rebass/styled-components';
 import Fade from 'react-reveal/Fade';
 import { Icon } from '@material-ui/core';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import { IconContext } from "react-icons";
-import { GrGithub } from "react-icons/gr";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
-import { ThemeContext } from "../context/ThemeContext";
+import { IconContext } from 'react-icons';
+import { GrGithub } from 'react-icons/gr';
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi';
+import { ThemeContext } from '../context/ThemeContext';
 
 const MEDIA_QUERY_SMALL = '@media (max-width: 450px)';
 
@@ -63,7 +59,7 @@ const Footer = () => {
   const iconColor = theme === 'light' ? '#000000' : '#FFFFFF';
   return (
     <IconContext.Provider value={{ color: iconColor, size: '2.5rem' }}>
-    <Box p={[2, 3]} backgroundColor="primaryDark" as="footer">
+    <Box p={[2, 3]} backgroundColor="primary" as="footer">
       <FooterContainer>
         <Fade left>
           <TextFooter fontSize={[2, 3]}>

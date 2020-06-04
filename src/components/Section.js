@@ -24,7 +24,7 @@ const SectionContainer = styled.div`
 const DefaultBackground = () => <div />;
 
 const Container = ({ id, children, Background = DefaultBackground }) => (
-  <Section id={id} style={{ position: 'relative' }}>
+  <Section id={id} style={{ position: "relative" }}>
     <Background />
     <SectionContainer>{children}</SectionContainer>
   </Section>
@@ -36,12 +36,12 @@ Container.propTypes = {
   Background: PropTypes.func,
 };
 
-const Header = ({ name, icon = '', label = '' }) => (
+const Header = ({ name, icon = "", label = "" }) => (
   <Slide left>
     <Heading color="text" mb={[4, 3]} fontSize={[ 5, 6, 7 ]}>
       {name}
       {icon && (
-        <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+        <span role="img" aria-label={label} style={{ marginLeft: "10px" }}>
           {icon}
         </span>
       )}

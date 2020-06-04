@@ -1,13 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react';
+import { Link, graphql } from 'gatsby';
 import { Flex } from 'rebass/styled-components';
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
-import { Triangle } from '../components/Triangle'
-import Section from '../components/Section'
-import styled from "styled-components"
-import { Icon } from "@material-ui/core"
-
+import Layout from '../components/Layout';
+import SEO from '../components/Seo';
+import { Triangle } from '../components/Triangle';
+import Section from '../components/Section';
+import styled from 'styled-components';
 
 const { Container } = Section;
 
@@ -15,27 +13,27 @@ const Background = () => (
   <div>
     <Triangle
       color="backgroundDark"
-      height={['35vh', '50vh']}
-      width={['95vw', '60vw']}
+      height={["35vh", "50vh"]}
+      width={["95vw", "60vw"]}
     />
 
     <Triangle
       color="secondary"
-      height={['5vh', '10vh']}
-      width={['50vw', '35vw']}
+      height={["5vh", "10vh"]}
+      width={["50vw", "35vw"]}
     />
 
     <Triangle
       color="primaryDark"
-      height={['5vh', '15vh']}
-      width={['75vw', '100vw']}
+      height={["5vh", "15vh"]}
+      width={["75vw", "100vw"]}
       invertX
     />
 
     <Triangle
-      color="primaryDark"
-      height={['10vh', '5vh']}
-      width={['100vw', '100vw']}
+      color="primary"
+      height={["10vh", "5vh"]}
+      width={["100vw", "100vw"]}
       invertX
       invertY
     />

@@ -2,15 +2,15 @@ import preset from "@rebass/preset"
 
 const colorsLight = {
   background: '#FFFFFF',
-  backgroundDark: '#f2eaec',
+  backgroundDark: '#d3d3d3',
 
   text: '#000000',
 
-  primary: '#50b6bb',
-  primaryLight: '#0ce5e1',
-  primaryDark: '#45969b',
+  primary: '#bdd5ea',
+  primaryLight: '#f7f7ff',
+  primaryDark: '#577399',
 
-  secondary: '#ff0340',
+  secondary: '#fe5f55',
 };
 
 const colorsDark = {

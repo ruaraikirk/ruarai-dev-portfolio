@@ -1,14 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import Section from '../components/Section'
-import { Triangle } from "../components/Triangle"
-import styled from "styled-components"
-import { Box, Flex, Heading, Text, Image } from "rebass/styled-components"
+import React from 'react';
+import PropTypes from 'prop-types';
+import Section from '../components/Section';
+import { Triangle } from '../components/Triangle';
+import styled from 'styled-components';
+import { Box, Flex, Text, Image } from 'rebass/styled-components';
 import { CardContainer, Card } from '../components/Card';
-import ImageSubtitle from "../components/ImageSubtitle"
-import Fade from "react-reveal/Fade"
-import SocialLink from "../components/SocialLink"
+import ImageSubtitle from '../components/ImageSubtitle';
+import Fade from 'react-reveal/Fade';
+import SocialLink from '../components/SocialLink';
 import Hide from '../components/Hide';
 
 
@@ -18,22 +17,22 @@ const Background = () => (
   <div>
     <Triangle
       color="primaryDark"
-      height={['10vh', '20vh']}
-      width={['100vw', '100vw']}
+      height={["10vh", "20vh"]}
+      width={["100vw", "100vw"]}
     />
 
     <Triangle
       color="secondary"
-      height={['25vh', '20vh']}
-      width={['70vw', '40vw']}
+      height={["25vh", "20vh"]}
+      width={["70vw", "40vw"]}
       invertX
       invertY
     />
 
     <Triangle
       color="primaryLight"
-      height={['30vh', '10vh']}
-      width={['100vw', '100vw']}
+      height={["30vh", "10vh"]}
+      width={["100vw", "100vw"]}
       invertY
     />
   </div>
@@ -113,7 +112,7 @@ const OpensourceProject = ({ name, description, projectYear, repositoryUrl, proj
             {name}
           </Title>
         </span>
-        <Text width={[1]} style={{ overflow: 'auto' }} color="text">
+        <Text width={[1]} style={{ overflow: "auto" }} color="text">
           {description}
         </Text>
       </TextContainer>
@@ -126,7 +125,7 @@ const OpensourceProject = ({ name, description, projectYear, repositoryUrl, proj
         <ProjectTag>
           <Flex
             style={{
-              float: 'right',
+              float: "right",
             }}
           >
             <Box mx={1} fontSize={5}>
@@ -159,7 +158,6 @@ const OpensourceProject = ({ name, description, projectYear, repositoryUrl, proj
 OpensourceProject.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  // image: PropTypes.string.isRequired,
   repositoryUrl: PropTypes.string.isRequired,
   projectUrl: PropTypes.string.isRequired,
   projectYear: PropTypes.string.isRequired,
@@ -181,19 +179,11 @@ const Opensource = () => {
       <Header name="Opensource" icon="🤝" label="handshake"  />
       <CardContainer minWidth="350px">
         <Fade bottom delay={200} key="TBC">
-          <OpensourceProject {...fakeProject} key='TBCC' />
+          <OpensourceProject {...fakeProject} key="TBCC" />
         </Fade>
       </CardContainer>
     </Container>
   )
-}
-
-Opensource.defaultProps = {
-
-}
-
-Opensource.propTypes = {
-
 }
 
 export default Opensource
