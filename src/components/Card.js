@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { Card as CardRebass } from 'rebass/styled-components';
 

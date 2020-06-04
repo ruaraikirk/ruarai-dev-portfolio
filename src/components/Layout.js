@@ -1,22 +1,18 @@
-import React, { useState, useContext } from "react"
-import { Link } from 'gatsby'
-import styled, { createGlobalStyle,  ThemeProvider } from 'styled-components'
-import { Text, Flex, Box, Heading } from 'rebass/styled-components';
-import { ScrollingProvider, Section } from 'react-scroll-section'
-// import preset from '@rebass/preset'
-// import useLocalState from "../utils/useLocalState"
-import { GlobalStyle } from "../components/GlobalStyle";
-import { lightTheme, darkTheme } from "../components/Themes"
-import { useDarkMode } from "../utils/useDarkMode"
-import HiddenBox from './HiddenBox'
-import Hero from '../sections/Hero'
-import Header from './Header'
-import Footer from "./Footer"
-import HomeIcon from "@material-ui/icons/Home"
-import Headroom from "react-headroom"
-import { ThemeContext } from "../context/ThemeContext"
+import React, { useContext } from 'react';
+import { Link } from 'gatsby';
+import styled, { ThemeProvider } from 'styled-components';
+import { Flex, Box } from 'rebass/styled-components';
+import { ScrollingProvider, Section } from 'react-scroll-section';
+import { GlobalStyle } from '../components/GlobalStyle';
+import { lightTheme, darkTheme } from '../components/Themes';
+import HiddenBox from './HiddenBox';
+import Hero from '../sections/Hero';
+import Header from './Header';
+import Footer from './Footer';
+import Headroom from 'react-headroom';
+import { ThemeContext } from '../context/ThemeContext';
 import { MdHome } from 'react-icons/md';
-import { IconContext } from "react-icons";
+import { IconContext } from 'react-icons';
 
 const HeaderContainer = styled(Headroom)`
   .headroom--pinned {
@@ -31,10 +27,9 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
   const [theme, themeToggler, mountedComponent] = useContext(ThemeContext);
-  // const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
-  if (location.pathname !== rootPath) {
+  if (location?.pathname !== rootPath) {
     header = (
       <IconContext.Provider value={{ size: "2.5rem" }}>
         <HeaderContainer>
@@ -45,7 +40,7 @@ const Layout = ({ location, title, children }) => {
                 px={[2, 1]}
                 py={[4, 2]}
                 sx={{
-                  color: 'text', // theme.colors.primary
+                  color: 'text',
                 }}
               >
               <Link
@@ -75,20 +70,21 @@ const Layout = ({ location, title, children }) => {
   }
 
   if(!mountedComponent) return <div/>
+
   return (
     <main>
       <ThemeProvider theme={themeMode}>
         <GlobalStyle />
         <ScrollingProvider>
           <HiddenBox
-            showIf={location.pathname === rootPath}
+            showIf={location?.pathname === rootPath}
           >
             <Header checked={theme} toggleTheme={themeToggler}/>
             <Section id="home">
               <Hero />
             </Section>
           </HiddenBox>
-          <HiddenBox showIf={location.pathname !== rootPath}><header>{header}</header></HiddenBox>
+          <HiddenBox showIf={location?.pathname !== rootPath}><header>{header}</header></HiddenBox>
           <main>{children}</main>
           <Footer />
         </ScrollingProvider>

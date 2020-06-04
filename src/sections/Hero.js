@@ -1,10 +1,10 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
 import styled from 'styled-components';
-import { SectionLink } from 'react-scroll-section'
-import HeroContent from "../components/HeroContent"
-import MouseIcon from "../components/MouseIcon"
+import { SectionLink } from 'react-scroll-section';
+import HeroContent from '../components/HeroContent';
+import MouseIcon from '../components/MouseIcon';
 
 const Container = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
-import React, { createContext, useState } from "react"
-import { useDarkMode } from "../utils/useDarkMode"
+import React, { createContext } from 'react';
+import { useDarkMode } from '../utils/useDarkMode';
 
 
 export const ThemeContext = createContext();

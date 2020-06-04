@@ -1,17 +1,9 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import PropTypes from "prop-types"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import Section from '../components/Section'
-import { Triangle } from '../components/Triangle'
-import styled from "styled-components"
-import { Box, Flex, Text } from "rebass/styled-components"
-import { Card, CardContainer } from "../components/Card"
-import ImageSubtitle from "../components/ImageSubtitle"
-import Fade from "react-reveal/Fade"
-
-import { useDarkMode } from "../utils/useDarkMode"
-import { IconContext } from "react-icons";
+import React, { useContext } from 'react';
+import Section from '../components/Section';
+import { Triangle } from '../components/Triangle';
+import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
+import { IconContext } from 'react-icons';
 import {
   DiHtml5,
   DiCss3,
@@ -25,11 +17,11 @@ import {
   DiNpm,
   DiVisualstudio,
   DiTerminal,
-} from "react-icons/di";
-import { AiFillGitlab, AiOutlineAntDesign } from "react-icons/ai"
-import { FaDocker, FaJenkins, FaNode, FaLinode, FaAws } from "react-icons/fa"
-import { GrGatsbyjs } from "react-icons/gr"
-import { ThemeContext } from "../context/ThemeContext"
+} from 'react-icons/di';
+import { AiFillGitlab, AiOutlineAntDesign } from 'react-icons/ai';
+import { FaDocker, FaJenkins, FaNode, FaLinode, FaAws } from 'react-icons/fa';
+import { GrGatsbyjs } from 'react-icons/gr';
+import { ThemeContext } from '../context/ThemeContext';
 
 const { Container, Header } = Section;
 
@@ -66,8 +58,6 @@ const Background = () => (
   </div>
 );
 
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)';
-
 // TODO Maybe refactor to use rebass...
 const Skills = styled.div`
   // position: relative;
@@ -96,37 +86,8 @@ const Item = styled.div`
 `;
 
 const Technologies = () => {
-
-  const data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(
-        filter: {fileAbsolutePath: {regex: "/(\\/content\\/technologies)/.*\\\\.md$/"}}
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              stack
-              website
-              featuredImage {
-                childImageSharp {
-                  fluid(maxWidth: 200) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const technologies = data.allMarkdownRemark.edges;
-  // TODO Include use effect or something to rerender (React.Memo?)
   const [theme] = useContext(ThemeContext);
-  const iconColor = theme === 'light' ? '#ff0340' : '#03dac5';
-  // const iconTheme = '#03dac5';
+  const iconColor = theme === "light" ? "#ff0340" : "#03dac5";
   const techIcons = [
     <DiHtml5 />,
     <DiCss3 />,
@@ -172,14 +133,6 @@ const Technologies = () => {
         </Skills>
     </Container>
   )
-}
-
-Technologies.defaultProps = {
-
-}
-
-Technologies.propTypes = {
-
 }
 
 export default Technologies
