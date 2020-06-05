@@ -70,7 +70,10 @@ const Project = ({
   <Flex
     flexDirection="column"
     justifyContent="space-between"
-    style={{ height: "100%" }}
+    style={{
+      height: "100%",
+      marginBottom: "1rem"
+    }}
   >
     <ProjectCard pb={4}>
       <EllipsisHeading m={3} p={1} color="text">
