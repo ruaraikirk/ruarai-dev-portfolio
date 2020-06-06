@@ -50,13 +50,23 @@ const StyledIcon = styled(Icon)`
 
 const StyledPara = styled.p`
   color: ${(props) => props.theme.colors.text};
+  a:link {
+    text-decoration: none !important;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none !important;
+    color: inherit;
+  }
+  a:visited {
+    text-decoration: none !important;
+    color: inherit;
+  }
 `;
 
-const StyledAnchor = styled.span`
-  text-decoration:none;
+const StyledAnchor = styled.a`
   border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
   box-shadow: inset 0 -4px 0 ${(props) => props.theme.colors.secondary}
-  color: inherit;
   transition: background 0.1s cubic-bezier(.33,.66,.66,1);
   &:hover {
     background: ${(props) => props.theme.colors.secondary};
