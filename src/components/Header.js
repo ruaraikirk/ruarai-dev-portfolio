@@ -70,8 +70,8 @@ const StyledIcon = styled(Icon)`
 
 const DarkModeToggle = ({ checked, toggleTheme }) => {
   return (
-    <Flex justifyContent="space-around">
-      <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
+    <Flex justifyContent="space-around" alignItems="center">
+      <StyledIcon><WbSunnyIcon /></StyledIcon>
       <Switch
         checked={checked === "dark"}
         onChange={toggleTheme}
@@ -79,7 +79,7 @@ const DarkModeToggle = ({ checked, toggleTheme }) => {
         name="checkedB"
         inputProps={{ "aria-label": "primary checkbox" }}
       />
-      <StyledIcon><NightsStayIcon fontSize="medium" /></StyledIcon>
+      <StyledIcon><NightsStayIcon /></StyledIcon>
     </Flex>
   )
 };
@@ -142,7 +142,7 @@ const Header = (props) => {
                 />
               ));
 
-              navLinks.push(<DarkModeToggle checked={props.checked} toggleTheme={props.toggleTheme} />);
+              navLinks.push(<DarkModeToggle key={'theme_toggle_header'} checked={props.checked} toggleTheme={props.toggleTheme} />);
 
               return (
                 <Fragment>
