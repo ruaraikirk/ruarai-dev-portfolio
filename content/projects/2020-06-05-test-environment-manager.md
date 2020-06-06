@@ -8,7 +8,7 @@ description: >-
 projectUrl: 'http://env.optiim.com:8090/'
 repositoryUrl: 'https://gitlab.com/'
 type: infra
-featuredImage: /img/test-env-man-2.png
+featuredImage: /img/test-env-man-3.png
 ---
 The concept behind Test Environment Manager was to reduce cost of hosting demo and test environments within Continuous Software Ltd. Sales and consultant teams required instances for hosting client instances of aangine and also for demo purposes, but these came at a cost.
 

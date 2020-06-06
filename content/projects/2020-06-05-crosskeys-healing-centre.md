@@ -11,4 +11,6 @@ repositoryUrl: 'https://github.com/ruaraikirk/gatsby-starter-dimension'
 type: front-end
 featuredImage: /img/crosskeys-featured.jpeg
 ---
-Crosskeys Healing Centre are specialists in crystal bed light therapy, reflexology, reiki and integrated energy therapy (I.E.T.), situated in Cork, Ireland. The requirement for this project was an aesthetically please and relevant design, along with a contact form. See <https://www.crosskeyscentre.com/>
+Crosskeys Healing Centre are specialists in crystal bed light therapy, reflexology, reiki and integrated energy therapy (I.E.T.), situated in Cork, Ireland. The requirement for this project was an aesthetically please and relevant design, along with a contact form. See <https://www.crosskeyscentre.com/>.
+
+![Crosskeys Mobile](/img/crosskeys-mobile.png "Crosskeys Mobile")
