@@ -118,9 +118,9 @@ const Technologies = () => {
           <Wrap>
             <List>
               <IconContext.Provider value={{ color: iconColor }}>
-                {techIcons.map((icon) => {
+                {techIcons.map((icon, index) => {
                   return (
-                    <Item>
+                    <Item key={`icon_${index}`}>
                       <Fade bottom delay={200}>
                         {icon}
                       </Fade>

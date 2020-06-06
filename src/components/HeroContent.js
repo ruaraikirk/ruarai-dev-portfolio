@@ -72,7 +72,7 @@ const HeroContent = () => {
           </Box>
           <Box key="header_mail">
             <StyledIcon>
-              <FiMail fontSize="large" onClick={() => window.open("mailto: ruaraikirk@gmail.com")}/>
+              <FiMail onClick={() => window.open("mailto: ruaraikirk@gmail.com")}/>
             </StyledIcon>
           </Box>
           <Box key="header_instagram">

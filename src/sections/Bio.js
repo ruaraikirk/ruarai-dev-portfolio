@@ -76,7 +76,7 @@ const StyledAnchor = styled.a`
 const DarkModeToggle = ({ checked, toggleTheme }) => {
   return (
     <Flex justifyContent="center" alignItems="center" mb={[4,0]}>
-      <StyledIcon><WbSunnyIcon fontSize="medium" /></StyledIcon>
+      <StyledIcon><WbSunnyIcon /></StyledIcon>
       <Switch
         checked={checked === "dark"}
         onChange={toggleTheme}
@@ -84,7 +84,7 @@ const DarkModeToggle = ({ checked, toggleTheme }) => {
         name="checkedB"
         inputProps={{ "aria-label": "primary checkbox" }}
       />
-      <StyledIcon><NightsStayIcon fontSize="medium" /></StyledIcon>
+      <StyledIcon><NightsStayIcon /></StyledIcon>
     </Flex>
   )
 };

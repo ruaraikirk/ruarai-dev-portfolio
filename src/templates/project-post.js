@@ -6,6 +6,7 @@ import SEO from '../components/Seo';
 import { Triangle } from '../components/Triangle';
 import Section from '../components/Section';
 import styled from 'styled-components';
+import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai';
 
 const { Container } = Section;
 
@@ -65,6 +66,41 @@ const StyledSection = styled.section`
   }
 `;
 
+const StyledNav = styled.nav`
+  a:link {
+    text-decoration: none !important;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none !important;
+    color: inherit;
+  }
+  a:visited {
+    text-decoration: none !important;
+    color: inherit;
+  }
+`;
+
+const StyledList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid ${(props) => props.theme.colors.secondary};
+  box-shadow: inset 0 -2px 0 ${(props) => props.theme.colors.secondary};
+  transition: background 0.1s cubic-bezier(.33,.66,.66,1);
+  &:hover {
+    background: ${(props) => props.theme.colors.secondary};
+  }
+`;
+
 const ProjectPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -97,32 +133,24 @@ const ProjectPostTemplate = ({ data, pageContext, location }) => {
           <hr />
         </StyledArticle>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
+        <StyledNav>
+          <StyledList>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
+                <StyledLink to={next.fields.slug} rel="next">
+                  <AiOutlineCaretLeft /> {next.frontmatter.title}
+                </StyledLink>
               )}
             </li>
-          </ul>
-        </nav>
+            <li>
+              {previous && (
+                <StyledLink to={previous.fields.slug} rel="prev">
+                  {previous.frontmatter.title} <AiOutlineCaretRight />
+                </StyledLink>
+              )}
+            </li>
+          </StyledList>
+        </StyledNav>
       </Container>
     </Layout>
   )
